@@ -39,9 +39,18 @@
 				{
 					"id": "on-key-pressed",
 					"objectClass": "Keyboard",
-					"sid": 924605558793309,
+					"sid": 891378538939636,
 					"parameters": {
 						"key": 27
+					}
+				},
+				{
+					"id": "on-button-pressed",
+					"objectClass": "Gamepad",
+					"sid": 382049213509426,
+					"parameters": {
+						"gamepad": "0",
+						"button": "button-y"
 					}
 				}
 			],
@@ -111,7 +120,8 @@
 					],
 					"sid": 529415726727223
 				}
-			]
+			],
+			"isOrBlock": true
 		},
 		{
 			"functionName": "displayMenu",
@@ -122,7 +132,16 @@
 			"functionParameters": [],
 			"eventType": "function-block",
 			"conditions": [],
-			"actions": [],
+			"actions": [
+				{
+					"id": "set-visible",
+					"objectClass": "txtCharSelect",
+					"sid": 540909865373535,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				}
+			],
 			"sid": 881712866207408,
 			"children": [
 				{
@@ -212,6 +231,33 @@
 						{
 							"id": "pick-by-comparison",
 							"objectClass": "System",
+							"sid": 232061121089211,
+							"parameters": {
+								"object": "class_select",
+								"expression": "class_select.id",
+								"comparison": 0,
+								"value": "\"hero2\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "class_select",
+							"sid": 847058542632308,
+							"parameters": {
+								"visibility": "toggle"
+							}
+						}
+					],
+					"sid": 242222600903565
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-comparison",
+							"objectClass": "System",
 							"sid": 480764273021374,
 							"parameters": {
 								"object": "frame",
@@ -250,6 +296,10 @@
 					"isActiveOnStart": true,
 					"children": [
 						{
+							"eventType": "comment",
+							"text": "Class select control Player 1"
+						},
+						{
 							"eventType": "block",
 							"conditions": [
 								{
@@ -258,6 +308,17 @@
 									"sid": 764226080621289,
 									"parameters": {
 										"key": 39
+									}
+								},
+								{
+									"id": "pick-by-comparison",
+									"objectClass": "System",
+									"sid": 337336187873253,
+									"parameters": {
+										"object": "class_select",
+										"expression": "class_select.id",
+										"comparison": 0,
+										"value": "\"hero1\""
 									}
 								}
 							],
@@ -283,6 +344,17 @@
 									"parameters": {
 										"key": 37
 									}
+								},
+								{
+									"id": "pick-by-comparison",
+									"objectClass": "System",
+									"sid": 825159307785574,
+									"parameters": {
+										"object": "class_select",
+										"expression": "class_select.id",
+										"comparison": 0,
+										"value": "\"hero1\""
+									}
 								}
 							],
 							"actions": [
@@ -303,22 +375,247 @@
 								{
 									"id": "on-key-pressed",
 									"objectClass": "Keyboard",
-									"sid": 982713421519080,
+									"sid": 792858611310378,
 									"parameters": {
 										"key": 13
 									}
+								},
+								{
+									"id": "is-timer-running",
+									"objectClass": "game_manager",
+									"sid": 809410693069577,
+									"behaviorType": "Timer",
+									"parameters": {
+										"tag": "\"classSelected\""
+									},
+									"isInverted": true
 								}
 							],
 							"actions": [
 								{
 									"callFunction": "changeClass",
-									"sid": 720230018184740,
+									"sid": 785896954558190,
 									"parameters": [
 										"1"
 									]
+								},
+								{
+									"callFunction": "changeClass",
+									"sid": 488748063615580,
+									"parameters": [
+										"2"
+									]
+								},
+								{
+									"id": "start-timer",
+									"objectClass": "game_manager",
+									"sid": 957447692281827,
+									"behaviorType": "Timer",
+									"parameters": {
+										"duration": "0.5",
+										"type": "once",
+										"tag": "\"classSelected\""
+									}
 								}
 							],
-							"sid": 287749393672796
+							"sid": 419118810067347
+						},
+						{
+							"eventType": "comment",
+							"text": "Class select control Player 2"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-axis",
+									"objectClass": "Gamepad",
+									"sid": 340011946374757,
+									"parameters": {
+										"gamepad": "0",
+										"axis": "left-analog-x-axis",
+										"comparison": 5,
+										"value": "25"
+									}
+								},
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 717109814812156,
+									"parameters": {
+										"key": 102
+									}
+								}
+							],
+							"actions": [],
+							"sid": 754242336966755,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 840157229576224
+										}
+									],
+									"actions": [],
+									"sid": 398224734840123,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-by-comparison",
+													"objectClass": "System",
+													"sid": 769407141044471,
+													"parameters": {
+														"object": "class_select",
+														"expression": "class_select.id",
+														"comparison": 0,
+														"value": "\"hero2\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation-frame",
+													"objectClass": "class_select",
+													"sid": 208204050680021,
+													"parameters": {
+														"frame-number": "Self.AnimationFrame +1 >=  Self.AnimationFrameCount ? 0 : Self.AnimationFrame + 1"
+													}
+												}
+											],
+											"sid": 654473855443645
+										}
+									],
+									"isOrBlock": true
+								}
+							],
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-axis",
+									"objectClass": "Gamepad",
+									"sid": 146379145994608,
+									"parameters": {
+										"gamepad": "0",
+										"axis": "left-analog-x-axis",
+										"comparison": 3,
+										"value": "-25"
+									}
+								},
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 250020186149121,
+									"parameters": {
+										"key": 100
+									}
+								}
+							],
+							"actions": [],
+							"sid": 294724232990241,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 565210418801872
+										}
+									],
+									"actions": [],
+									"sid": 596034634225083,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-by-comparison",
+													"objectClass": "System",
+													"sid": 281248096502493,
+													"parameters": {
+														"object": "class_select",
+														"expression": "class_select.id",
+														"comparison": 0,
+														"value": "\"hero2\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation-frame",
+													"objectClass": "class_select",
+													"sid": 421239627691531,
+													"parameters": {
+														"frame-number": "Self.AnimationFrame -1 <  0 ? Self.AnimationFrameCount : Self.AnimationFrame - 1"
+													}
+												}
+											],
+											"sid": 715942000819280
+										}
+									]
+								}
+							],
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-button-pressed",
+									"objectClass": "Gamepad",
+									"sid": 607288099509519,
+									"parameters": {
+										"gamepad": "0",
+										"button": "button-a"
+									}
+								},
+								{
+									"id": "is-timer-running",
+									"objectClass": "game_manager",
+									"sid": 735181416052043,
+									"behaviorType": "Timer",
+									"parameters": {
+										"tag": "\"classSelected\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "changeClass",
+									"sid": 861258129698083,
+									"parameters": [
+										"1"
+									]
+								},
+								{
+									"callFunction": "changeClass",
+									"sid": 476028329831428,
+									"parameters": [
+										"2"
+									]
+								},
+								{
+									"id": "start-timer",
+									"objectClass": "game_manager",
+									"sid": 767445675142868,
+									"behaviorType": "Timer",
+									"parameters": {
+										"duration": "0.5",
+										"type": "once",
+										"tag": "\"classSelected\""
+									}
+								}
+							],
+							"sid": 791913157102634
 						},
 						{
 							"eventType": "comment",
@@ -348,16 +645,6 @@
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "is-timer-running",
-											"objectClass": "game_manager",
-											"sid": 781881054957733,
-											"behaviorType": "Timer",
-											"parameters": {
-												"tag": "\"classSelected\""
-											},
-											"isInverted": true
-										},
-										{
 											"id": "pick-by-comparison",
 											"objectClass": "System",
 											"sid": 850565058783336,
@@ -384,6 +671,17 @@
 														"expression": "PlayerClasses.UID",
 														"comparison": 0,
 														"value": "Players.classUID"
+													}
+												},
+												{
+													"id": "pick-by-comparison",
+													"objectClass": "System",
+													"sid": 289002624709750,
+													"parameters": {
+														"object": "class_select",
+														"expression": "class_select.id",
+														"comparison": 0,
+														"value": "\"hero\" & playerNr"
 													}
 												}
 											],
@@ -479,17 +777,6 @@
 																	"parameters": {
 																		"instance-variable": "classUID",
 																		"value": "PlayerClasses.UID"
-																	}
-																},
-																{
-																	"id": "start-timer",
-																	"objectClass": "game_manager",
-																	"sid": 621916276320669,
-																	"behaviorType": "Timer",
-																	"parameters": {
-																		"duration": "0.5",
-																		"type": "once",
-																		"tag": "\"classSelected\""
 																	}
 																}
 															],

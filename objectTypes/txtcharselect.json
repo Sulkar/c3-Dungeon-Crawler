@@ -1,0 +1,27 @@
+{
+	"name": "txtCharSelect",
+	"plugin-id": "Spritefont2",
+	"sid": 370317742492340,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "id",
+			"type": "string",
+			"desc": "",
+			"sid": 975695844601702
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"image": {
+		"width": 128,
+		"height": 256,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 6078511,
+		"useCollisionPoly": true
+	}
+}

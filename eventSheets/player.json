@@ -472,6 +472,14 @@
 												"comparison": 5,
 												"value": "25"
 											}
+										},
+										{
+											"id": "key-is-down",
+											"objectClass": "Keyboard",
+											"sid": 226682882159243,
+											"parameters": {
+												"key": 102
+											}
 										}
 									],
 									"actions": [
@@ -524,6 +532,14 @@
 												"axis": "left-analog-x-axis",
 												"comparison": 3,
 												"value": "-25"
+											}
+										},
+										{
+											"id": "key-is-down",
+											"objectClass": "Keyboard",
+											"sid": 894719291332160,
+											"parameters": {
+												"key": 100
 											}
 										}
 									],
@@ -578,6 +594,14 @@
 												"comparison": 3,
 												"value": "-25"
 											}
+										},
+										{
+											"id": "key-is-down",
+											"objectClass": "Keyboard",
+											"sid": 507042916535965,
+											"parameters": {
+												"key": 104
+											}
 										}
 									],
 									"actions": [
@@ -613,6 +637,14 @@
 												"axis": "left-analog-y-axis",
 												"comparison": 5,
 												"value": "25"
+											}
+										},
+										{
+											"id": "key-is-down",
+											"objectClass": "Keyboard",
+											"sid": 946354891155909,
+											"parameters": {
+												"key": 98
 											}
 										}
 									],

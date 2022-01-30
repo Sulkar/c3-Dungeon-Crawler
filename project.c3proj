@@ -131,18 +131,16 @@
 	"objectTypes": {
 		"items": [
 			"tilemap",
-			"enemy_1",
 			"txtDebug",
-			"effect_sword_slash",
-			"game_manager",
-			"effect_player_hit"
+			"game_manager"
 		],
 		"subfolders": [
 			{
 				"items": [
 					"classKnight",
 					"classMage",
-					"player_base"
+					"player_base",
+					"effect_sword_slash"
 				],
 				"subfolders": [],
 				"name": "Players"
@@ -164,7 +162,8 @@
 					"txtPlayer_coins",
 					"frame",
 					"class_select",
-					"arrow"
+					"arrow",
+					"txtCharSelect"
 				],
 				"subfolders": [],
 				"name": "HUD"
@@ -179,6 +178,14 @@
 				],
 				"subfolders": [],
 				"name": "System"
+			},
+			{
+				"items": [
+					"effect_player_hit",
+					"enemy_1"
+				],
+				"subfolders": [],
+				"name": "Enemies"
 			}
 		]
 	},
