@@ -1,0 +1,514 @@
+{
+	"name": "Menu",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "MENU_OPEN",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 322838844340856
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 991354122795349
+				}
+			],
+			"actions": [
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 494165608242111,
+					"parameters": {
+						"group-name": "\"MenuControls\"",
+						"state": "deactivated"
+					}
+				}
+			],
+			"sid": 142560107195019
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 924605558793309,
+					"parameters": {
+						"key": 27
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "allPlayersStoppedBattle",
+					"sid": 811867587673130
+				},
+				{
+					"callFunction": "allPlayersStoppedMoving",
+					"sid": 869175444374350
+				}
+			],
+			"sid": 884422434105854,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 762413498458977,
+							"parameters": {
+								"variable": "ALL_PLAYERS_STOPPED_BATTLE"
+							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 613209624479038,
+							"parameters": {
+								"variable": "ALL_PLAYERS_STOPPED_MOVING"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "toggle-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 256336837342390,
+							"parameters": {
+								"variable": "MENU_OPEN"
+							}
+						},
+						{
+							"callFunction": "displayMenu",
+							"sid": 619981330742792
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 837635553166179,
+							"parameters": {
+								"group-name": "\"PlayerControls\"",
+								"state": "toggle-active"
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 405497907343068,
+							"parameters": {
+								"group-name": "\"MenuControls\"",
+								"state": "toggle-active"
+							}
+						}
+					],
+					"sid": 529415726727223
+				}
+			]
+		},
+		{
+			"functionName": "displayMenu",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 881712866207408,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-comparison",
+							"objectClass": "System",
+							"sid": 116202243981476,
+							"parameters": {
+								"object": "arrow",
+								"expression": "arrow.id",
+								"comparison": 0,
+								"value": "\"leftArrow\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "arrow",
+							"sid": 296770366808693,
+							"parameters": {
+								"visibility": "toggle"
+							}
+						}
+					],
+					"sid": 740537943242935
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-comparison",
+							"objectClass": "System",
+							"sid": 888182135368023,
+							"parameters": {
+								"object": "arrow",
+								"expression": "arrow.id",
+								"comparison": 0,
+								"value": "\"rightArrow\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "arrow",
+							"sid": 658985194942731,
+							"parameters": {
+								"visibility": "toggle"
+							}
+						}
+					],
+					"sid": 902207616643480
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-comparison",
+							"objectClass": "System",
+							"sid": 517624998497497,
+							"parameters": {
+								"object": "class_select",
+								"expression": "class_select.id",
+								"comparison": 0,
+								"value": "\"hero1\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "class_select",
+							"sid": 360231533785659,
+							"parameters": {
+								"visibility": "toggle"
+							}
+						}
+					],
+					"sid": 136769848705194
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-comparison",
+							"objectClass": "System",
+							"sid": 480764273021374,
+							"parameters": {
+								"object": "frame",
+								"expression": "frame.id",
+								"comparison": 0,
+								"value": "\"hero_select\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "frame",
+							"sid": 617991369262673,
+							"parameters": {
+								"visibility": "toggle"
+							}
+						}
+					],
+					"sid": 353662607596875
+				}
+			]
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "MenuControls",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "ClassSelect",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 764226080621289,
+									"parameters": {
+										"key": 39
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "class_select",
+									"sid": 227616558770066,
+									"parameters": {
+										"frame-number": "Self.AnimationFrame +1 >=  Self.AnimationFrameCount ? 0 : Self.AnimationFrame + 1"
+									}
+								}
+							],
+							"sid": 924457474847192
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 471086470320218,
+									"parameters": {
+										"key": 37
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "class_select",
+									"sid": 366810226830357,
+									"parameters": {
+										"frame-number": "Self.AnimationFrame -1 <  0 ? Self.AnimationFrameCount : Self.AnimationFrame - 1"
+									}
+								}
+							],
+							"sid": 991709102363419
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 982713421519080,
+									"parameters": {
+										"key": 13
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "changeClass",
+									"sid": 720230018184740,
+									"parameters": [
+										"1"
+									]
+								}
+							],
+							"sid": 287749393672796
+						},
+						{
+							"eventType": "comment",
+							"text": "Change current selected class in Class Select Menu"
+						},
+						{
+							"functionName": "changeClass",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "playerNr",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 286684845683550
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [],
+							"sid": 705992272494197,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-timer-running",
+											"objectClass": "game_manager",
+											"sid": 781881054957733,
+											"behaviorType": "Timer",
+											"parameters": {
+												"tag": "\"classSelected\""
+											},
+											"isInverted": true
+										},
+										{
+											"id": "pick-by-comparison",
+											"objectClass": "System",
+											"sid": 850565058783336,
+											"parameters": {
+												"object": "Players",
+												"expression": "Players.playerNr",
+												"comparison": 0,
+												"value": "playerNr"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 828251279661340,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-by-comparison",
+													"objectClass": "System",
+													"sid": 902349381352926,
+													"parameters": {
+														"object": "PlayerClasses",
+														"expression": "PlayerClasses.UID",
+														"comparison": 0,
+														"value": "Players.classUID"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "PlayerClasses",
+													"sid": 415146805558942
+												},
+												{
+													"id": "create-object-by-name",
+													"objectClass": "System",
+													"sid": 545217259883495,
+													"parameters": {
+														"object-name": "dctClasses.Get(str(class_select.AnimationFrame))",
+														"layer": "\"World\"",
+														"x": "Players.X",
+														"y": "Players.Y",
+														"create-hierarchy": false
+													}
+												}
+											],
+											"sid": 359536489803377,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "pick-last-created",
+															"objectClass": "System",
+															"sid": 758127177473550,
+															"parameters": {
+																"object": "PlayerClasses"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 418718053369385,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "Players",
+																	"sid": 621172102537850,
+																	"parameters": {
+																		"instance-variable": "direction",
+																		"comparison": 0,
+																		"value": "\"left\""
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"type": "comment",
+																	"text": "Point new class in same direction as the player is currently moving, if not previously moved up or down"
+																},
+																{
+																	"id": "set-width",
+																	"objectClass": "PlayerClasses",
+																	"sid": 274506783543777,
+																	"parameters": {
+																		"width": "Self.Width *  -1"
+																	}
+																}
+															],
+															"sid": 705292507723823
+														},
+														{
+															"eventType": "block",
+															"conditions": [],
+															"actions": [
+																{
+																	"id": "pin-to-object-properties",
+																	"objectClass": "PlayerClasses",
+																	"sid": 499808542501974,
+																	"behaviorType": "Pin",
+																	"parameters": {
+																		"pin-to": "Players",
+																		"x": true,
+																		"y": true,
+																		"angle": true,
+																		"width-type": "scale",
+																		"height-type": "scale",
+																		"z": true
+																	}
+																},
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "Players",
+																	"sid": 556572535709091,
+																	"parameters": {
+																		"instance-variable": "classUID",
+																		"value": "PlayerClasses.UID"
+																	}
+																},
+																{
+																	"id": "start-timer",
+																	"objectClass": "game_manager",
+																	"sid": 621916276320669,
+																	"behaviorType": "Timer",
+																	"parameters": {
+																		"duration": "0.5",
+																		"type": "once",
+																		"tag": "\"classSelected\""
+																	}
+																}
+															],
+															"sid": 281023172654231
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					],
+					"sid": 364358093255229
+				}
+			],
+			"sid": 705403138546079
+		}
+	],
+	"sid": 861157546776421
+}

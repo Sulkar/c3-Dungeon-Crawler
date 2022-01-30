@@ -25,6 +25,8 @@
 	],
 	"members": [
 		"enemy_1",
-		"hero_1"
+		"coin",
+		"classKnight",
+		"classMage"
 	]
 }

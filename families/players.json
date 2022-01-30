@@ -40,12 +40,6 @@
 			"sid": 121537231849359
 		},
 		{
-			"name": "lastAttacker",
-			"type": "string",
-			"desc": "",
-			"sid": 511172470940378
-		},
-		{
 			"name": "battle",
 			"type": "boolean",
 			"desc": "",
@@ -62,6 +56,24 @@
 			"type": "number",
 			"desc": "",
 			"sid": 523522428070926
+		},
+		{
+			"name": "money",
+			"type": "number",
+			"desc": "",
+			"sid": 572883232960544
+		},
+		{
+			"name": "classUID",
+			"type": "number",
+			"desc": "",
+			"sid": 118618904504771
+		},
+		{
+			"name": "direction",
+			"type": "string",
+			"desc": "",
+			"sid": 893418657904026
 		}
 	],
 	"behaviorTypes": [
@@ -73,6 +85,6 @@
 	],
 	"effectTypes": [],
 	"members": [
-		"hero_1"
+		"player_base"
 	]
 }

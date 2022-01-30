@@ -32,16 +32,8 @@
 		},
 		{
 			"type": "plugin",
-			"id": "Tilemap",
-			"name": "Tilemap",
-			"author": "Scirra",
-			"version": "r280",
-			"bundled": false
-		},
-		{
-			"type": "plugin",
-			"id": "Keyboard",
-			"name": "Keyboard",
+			"id": "NinePatch",
+			"name": "9-patch",
 			"author": "Scirra",
 			"version": "r280",
 			"bundled": false
@@ -58,6 +50,38 @@
 			"type": "plugin",
 			"id": "gamepad",
 			"name": "Gamepad",
+			"author": "Scirra",
+			"version": "r280",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Keyboard",
+			"name": "Keyboard",
+			"author": "Scirra",
+			"version": "r280",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Dictionary",
+			"name": "Dictionary",
+			"author": "Scirra",
+			"version": "r280",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "AJAX",
+			"name": "AJAX",
+			"author": "Scirra",
+			"version": "r280",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Tilemap",
+			"name": "Tilemap",
 			"author": "Scirra",
 			"version": "r280",
 			"bundled": false
@@ -87,6 +111,14 @@
 			"bundled": false
 		},
 		{
+			"type": "behavior",
+			"id": "Pin",
+			"name": "Pin",
+			"author": "Scirra",
+			"version": "r280",
+			"bundled": false
+		},
+		{
 			"type": "effect",
 			"id": "hsladjust",
 			"name": "Adjust HSL",
@@ -99,26 +131,54 @@
 	"objectTypes": {
 		"items": [
 			"tilemap",
-			"Keyboard",
 			"enemy_1",
 			"txtDebug",
-			"Audio",
 			"effect_sword_slash",
 			"game_manager",
-			"Gamepad",
 			"effect_player_hit"
 		],
 		"subfolders": [
 			{
 				"items": [
-					"hero_1",
-					"playerHealthbar",
-					"txtPlayer1",
-					"txtPlayer2",
-					"playerHealthbarBackground"
+					"classKnight",
+					"classMage",
+					"player_base"
 				],
 				"subfolders": [],
 				"name": "Players"
+			},
+			{
+				"items": [
+					"coin"
+				],
+				"subfolders": [],
+				"name": "Items"
+			},
+			{
+				"items": [
+					"hud_coin",
+					"playerHealthbar",
+					"playerHealthbarBackground",
+					"txtPlayer1",
+					"txtPlayer2",
+					"txtPlayer_coins",
+					"frame",
+					"class_select",
+					"arrow"
+				],
+				"subfolders": [],
+				"name": "HUD"
+			},
+			{
+				"items": [
+					"Audio",
+					"Gamepad",
+					"Keyboard",
+					"dctClasses",
+					"AJAX"
+				],
+				"subfolders": [],
+				"name": "System"
 			}
 		]
 	},
@@ -129,7 +189,9 @@
 			"Players",
 			"Enemies",
 			"ZOrder",
-			"PlayersCollision"
+			"PlayerCollision",
+			"PlayerClasses",
+			"Items"
 		],
 		"subfolders": []
 	},
@@ -145,7 +207,8 @@
 			"Main",
 			"Player",
 			"Enemy",
-			"Items"
+			"Items",
+			"Menu"
 		],
 		"subfolders": []
 	},
@@ -165,6 +228,11 @@
 					"name": "attack2.webm",
 					"type": "audio/webm; codecs=opus",
 					"sid": 419299128110225
+				},
+				{
+					"name": "coin1.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 179327442229375
 				}
 			],
 			"subfolders": []
@@ -243,7 +311,13 @@
 			"subfolders": []
 		},
 		"general": {
-			"items": [],
+			"items": [
+				{
+					"name": "dctClasses.json",
+					"type": "application/json",
+					"sid": 592455527495650
+				}
+			],
 			"subfolders": []
 		}
 	},

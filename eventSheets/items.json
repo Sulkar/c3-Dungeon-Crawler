@@ -1,5 +1,115 @@
 {
 	"name": "Items",
-	"events": [],
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Players",
+					"sid": 455560127542643,
+					"parameters": {
+						"object": "coin"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "play-by-name",
+					"objectClass": "Audio",
+					"sid": 872935307838501,
+					"parameters": {
+						"folder": "sounds",
+						"audio-file-name": "coin.pickupSound",
+						"loop": "not-looping",
+						"volume": "0",
+						"tag-optional": "\"\""
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "coin",
+					"sid": 781613707540206
+				},
+				{
+					"callFunction": "addMoney",
+					"sid": 572951726907545,
+					"parameters": [
+						"Players.playerNr",
+						"coin.value"
+					]
+				}
+			],
+			"sid": 461956359523523
+		},
+		{
+			"eventType": "comment",
+			"text": "Adds money to the players money variable"
+		},
+		{
+			"functionName": "addMoney",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "playerNr",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 608858219015908
+				},
+				{
+					"name": "amount",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 282390395242257
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 120186805247413,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-comparison",
+							"objectClass": "System",
+							"sid": 817750379071966,
+							"parameters": {
+								"object": "Players",
+								"expression": "Players.playerNr",
+								"comparison": 0,
+								"value": "playerNr"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-instvar",
+							"objectClass": "Players",
+							"sid": 494387857853667,
+							"parameters": {
+								"instance-variable": "money",
+								"value": "amount"
+							}
+						},
+						{
+							"callFunction": "updateMoney",
+							"sid": 650125061900036,
+							"parameters": [
+								"playerNr"
+							]
+						}
+					],
+					"sid": 358062741898665
+				}
+			]
+		}
+	],
 	"sid": 216901956769175
 }

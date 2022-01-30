@@ -1,6 +1,7 @@
 # c3-Dungeon-Crawler
 
 ## Changelog
+- class select menu
 - multiplayer for 2 players
 - health bars
 - auto battle

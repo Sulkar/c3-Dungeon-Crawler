@@ -1,0 +1,31 @@
+{
+	"name": "PlayerClasses",
+	"plugin-id": "Sprite",
+	"sid": 766085240976690,
+	"instanceVariables": [
+		{
+			"name": "attackSound",
+			"type": "string",
+			"desc": "",
+			"sid": 310074330515994
+		},
+		{
+			"name": "class",
+			"type": "string",
+			"desc": "",
+			"sid": 760441906777873
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Pin",
+			"name": "Pin",
+			"sid": 793988992891474
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"classKnight",
+		"classMage"
+	]
+}

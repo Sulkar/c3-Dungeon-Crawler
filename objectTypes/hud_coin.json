@@ -1,0 +1,56 @@
+{
+	"name": "hud_coin",
+	"plugin-id": "Sprite",
+	"sid": 386215076953474,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "value",
+			"type": "number",
+			"desc": "",
+			"sid": 344777117229526
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 24,
+						"height": 24,
+						"originX": 0.5,
+						"originY": 0.708333,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 393285,
+						"collisionPoly": {
+							"points": [
+								0.169271,
+								0.166667,
+								0.833333,
+								0.166667,
+								0.833333,
+								0.833333,
+								0.166667,
+								0.833333
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 606715482397587,
+				"name": "Coin",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 10
+			}
+		],
+		"subfolders": []
+	}
+}

@@ -20,6 +20,12 @@
 			"type": "number",
 			"desc": "",
 			"sid": 176207410484311
+		},
+		{
+			"name": "attackSound",
+			"type": "string",
+			"desc": "",
+			"sid": 379629246451101
 		}
 	],
 	"behaviorTypes": [

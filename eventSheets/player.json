@@ -2,9 +2,29 @@
 	"name": "Player",
 	"events": [
 		{
+			"eventType": "variable",
+			"name": "ALL_PLAYERS_STOPPED_MOVING",
+			"type": "boolean",
+			"initialValue": "true",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 354743346471965
+		},
+		{
+			"eventType": "variable",
+			"name": "ALL_PLAYERS_STOPPED_BATTLE",
+			"type": "boolean",
+			"initialValue": "true",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 378428904581048
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
-			"title": "Controls",
+			"title": "PlayerControls",
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [
@@ -15,6 +35,92 @@
 					"description": "",
 					"isActiveOnStart": true,
 					"children": [
+						{
+							"eventType": "comment",
+							"text": "Spawn classKnight for player 1"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-start-of-layout",
+									"objectClass": "System",
+									"sid": 119417689710736
+								},
+								{
+									"id": "pick-by-comparison",
+									"objectClass": "System",
+									"sid": 371005110875528,
+									"parameters": {
+										"object": "Players",
+										"expression": "Players.playerNr",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object-by-name",
+									"objectClass": "System",
+									"sid": 503965380909205,
+									"parameters": {
+										"object-name": "\"classKnight\"",
+										"layer": "\"World\"",
+										"x": "Players.X",
+										"y": "Players.Y",
+										"create-hierarchy": false
+									}
+								}
+							],
+							"sid": 515134255854249,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-last-created",
+											"objectClass": "System",
+											"sid": 234280134259692,
+											"parameters": {
+												"object": "PlayerClasses"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "PlayerClasses",
+											"sid": 946101865342634,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Players",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "scale",
+												"height-type": "scale",
+												"z": true
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Players",
+											"sid": 946225483301706,
+											"parameters": {
+												"instance-variable": "classUID",
+												"value": "PlayerClasses.UID"
+											}
+										}
+									],
+									"sid": 163271925729529
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Check if player 1 can move"
+						},
 						{
 							"eventType": "block",
 							"conditions": [
@@ -83,6 +189,15 @@
 											}
 										},
 										{
+											"id": "set-instvar-value",
+											"objectClass": "Players",
+											"sid": 203583985032007,
+											"parameters": {
+												"instance-variable": "direction",
+												"value": "\"right\""
+											}
+										},
+										{
 											"callFunction": "movePlayer",
 											"sid": 321113726044882,
 											"parameters": [
@@ -121,6 +236,15 @@
 											"parameters": {
 												"instance-variable": "angleOfMotion",
 												"value": "180"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Players",
+											"sid": 237142184459513,
+											"parameters": {
+												"instance-variable": "direction",
+												"value": "\"left\""
 											}
 										},
 										{
@@ -213,6 +337,92 @@
 					"isActiveOnStart": true,
 					"children": [
 						{
+							"eventType": "comment",
+							"text": "Spawn classMage for player 2"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-start-of-layout",
+									"objectClass": "System",
+									"sid": 635146033627684
+								},
+								{
+									"id": "pick-by-comparison",
+									"objectClass": "System",
+									"sid": 918603453766275,
+									"parameters": {
+										"object": "Players",
+										"expression": "Players.playerNr",
+										"comparison": 0,
+										"value": "2"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object-by-name",
+									"objectClass": "System",
+									"sid": 480999882819461,
+									"parameters": {
+										"object-name": "\"classMage\"",
+										"layer": "\"World\"",
+										"x": "Players.X",
+										"y": "Players.Y",
+										"create-hierarchy": false
+									}
+								}
+							],
+							"sid": 740502163686239,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-last-created",
+											"objectClass": "System",
+											"sid": 426039198267107,
+											"parameters": {
+												"object": "PlayerClasses"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "PlayerClasses",
+											"sid": 232885511799772,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Players",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "scale",
+												"height-type": "scale",
+												"z": true
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Players",
+											"sid": 652904202606412,
+											"parameters": {
+												"instance-variable": "classUID",
+												"value": "PlayerClasses.UID"
+											}
+										}
+									],
+									"sid": 998679054423745
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Check if player 2 can move"
+						},
+						{
 							"eventType": "block",
 							"conditions": [
 								{
@@ -283,6 +493,15 @@
 											}
 										},
 										{
+											"id": "set-instvar-value",
+											"objectClass": "Players",
+											"sid": 854880115213064,
+											"parameters": {
+												"instance-variable": "direction",
+												"value": "\"right\""
+											}
+										},
+										{
 											"callFunction": "movePlayer",
 											"sid": 688607232148184,
 											"parameters": [
@@ -324,6 +543,15 @@
 											"parameters": {
 												"instance-variable": "angleOfMotion",
 												"value": "180"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Players",
+											"sid": 398747613360269,
+											"parameters": {
+												"instance-variable": "direction",
+												"value": "\"left\""
 											}
 										},
 										{
@@ -523,11 +751,11 @@
 												{
 													"id": "is-overlapping-at-offset",
 													"objectClass": "Players",
-													"sid": 198003578338983,
+													"sid": 582798163226189,
 													"parameters": {
-														"object": "PlayersCollision",
-														"offset-x": "round(cos(Players.angleOfMotion)*TILESIZE)",
-														"offset-y": "round(sin(Players.angleOfMotion)*TILESIZE)"
+														"object": "PlayerCollision",
+														"offset-x": "round(cos(Players.angleOfMotion)*(TILESIZE-10))",
+														"offset-y": "round(sin(Players.angleOfMotion)*(TILESIZE-10))"
 													},
 													"isInverted": true
 												}
@@ -616,36 +844,6 @@
 							}
 						},
 						{
-							"id": "set-instvar-value",
-							"objectClass": "Players",
-							"sid": 976701976893472,
-							"parameters": {
-								"instance-variable": "lastAttacker",
-								"value": "\"player\""
-							}
-						},
-						{
-							"id": "set-animation",
-							"objectClass": "Players",
-							"sid": 579383090492768,
-							"parameters": {
-								"animation": "\"attack\"",
-								"from": "beginning"
-							}
-						},
-						{
-							"id": "play-by-name",
-							"objectClass": "Audio",
-							"sid": 561161967267099,
-							"parameters": {
-								"folder": "sounds",
-								"audio-file-name": "\"attack1\"",
-								"loop": "not-looping",
-								"volume": "0",
-								"tag-optional": "\"\""
-							}
-						},
-						{
 							"id": "spawn-another-object",
 							"objectClass": "Enemies",
 							"sid": 838080013176020,
@@ -708,7 +906,46 @@
 							}
 						}
 					],
-					"sid": 353556452117754
+					"sid": 353556452117754,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "PlayerClasses",
+									"sid": 898619839645922,
+									"parameters": {
+										"unique-id": "Players.classUID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "PlayerClasses",
+									"sid": 443245195179430,
+									"parameters": {
+										"animation": "\"attack\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "play-by-name",
+									"objectClass": "Audio",
+									"sid": 787765266319233,
+									"parameters": {
+										"folder": "sounds",
+										"audio-file-name": "PlayerClasses.attackSound",
+										"loop": "not-looping",
+										"volume": "0",
+										"tag-optional": "\"\""
+									}
+								}
+							],
+							"sid": 625258365751408
+						}
+					]
 				},
 				{
 					"eventType": "comment",
@@ -774,6 +1011,71 @@
 							"sid": 343353548857746
 						}
 					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Update players money depending on its current money."
+				},
+				{
+					"functionName": "updateMoney",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "playerNr",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 286968133389838
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "pick-by-comparison",
+							"objectClass": "System",
+							"sid": 627497501881856,
+							"parameters": {
+								"object": "Players",
+								"expression": "Players.playerNr",
+								"comparison": 0,
+								"value": "playerNr"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 246057042670760,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-comparison",
+									"objectClass": "System",
+									"sid": 843745530458727,
+									"parameters": {
+										"object": "txtPlayer_coins",
+										"expression": "txtPlayer_coins.playerNr",
+										"comparison": 0,
+										"value": "playerNr"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "txtPlayer_coins",
+									"sid": 546658164290594,
+									"parameters": {
+										"text": "\"x\"&Players.money"
+									}
+								}
+							],
+							"sid": 410277658023679
+						}
+					]
 				}
 			],
 			"sid": 946692618767174
@@ -790,7 +1092,7 @@
 					"conditions": [
 						{
 							"id": "on-animation-finished",
-							"objectClass": "Players",
+							"objectClass": "PlayerClasses",
 							"sid": 748312684871586,
 							"parameters": {
 								"animation": "\"attack\""
@@ -800,7 +1102,7 @@
 					"actions": [
 						{
 							"id": "set-animation",
-							"objectClass": "Players",
+							"objectClass": "PlayerClasses",
 							"sid": 101913882297246,
 							"parameters": {
 								"animation": "\"idle\"",
@@ -812,6 +1114,244 @@
 				}
 			],
 			"sid": 272208295717401
+		},
+		{
+			"eventType": "comment",
+			"text": "Check if all players stopped moving"
+		},
+		{
+			"functionName": "allPlayersStoppedMoving",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 128000852467311,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "playersNotMoving",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 935408269925075
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 880812184031429,
+							"parameters": {
+								"object": "Players"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 348618735484625,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-moving",
+									"objectClass": "Players",
+									"sid": 110583424004967,
+									"behaviorType": "TileMovement",
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 580489720214778,
+									"parameters": {
+										"variable": "playersNotMoving",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 628433000885502
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 183268232745836,
+									"parameters": {
+										"variable": "playersNotMoving",
+										"comparison": 0,
+										"value": "PLAYER_COUNT"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 534484314753987,
+									"parameters": {
+										"variable": "ALL_PLAYERS_STOPPED_MOVING",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 849026988687680
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 581783978345308
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 165479625999528,
+									"parameters": {
+										"variable": "ALL_PLAYERS_STOPPED_MOVING",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 584153291446936
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "comment",
+			"text": "Check if all players stopped battle"
+		},
+		{
+			"functionName": "allPlayersStoppedBattle",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 490726963603913,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "playersNotInBattle",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 182507914557502
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 913027720134727,
+							"parameters": {
+								"object": "Players"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 528641808518588,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Players",
+									"sid": 943057783407243,
+									"parameters": {
+										"instance-variable": "battle"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 986613956301138,
+									"parameters": {
+										"variable": "playersNotInBattle",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 295909606573407
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 111060897502679,
+									"parameters": {
+										"variable": "playersNotInBattle",
+										"comparison": 0,
+										"value": "PLAYER_COUNT"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 945841487035018,
+									"parameters": {
+										"variable": "ALL_PLAYERS_STOPPED_BATTLE",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 356778296756008
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 335511210829378
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 675111635680223,
+									"parameters": {
+										"variable": "ALL_PLAYERS_STOPPED_BATTLE",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 620867691169948
+						}
+					]
+				}
+			]
 		}
 	],
 	"sid": 404086459962100

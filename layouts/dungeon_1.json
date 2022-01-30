@@ -55,45 +55,29 @@
 					}
 				},
 				{
-					"type": "hero_1",
+					"type": "classKnight",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "idle",
 						"initial-frame": 0,
-						"enable-collisions": true,
+						"enable-collisions": false,
 						"live-preview": false
 					},
 					"uid": 2,
 					"instanceVariables": {
-						"angleOfMotion": 0,
-						"animationCooldown": 0.2,
-						"cooldownName": "cooldownPlayer1",
-						"cooldownNameEnemy": "cooldownEnemy1",
-						"lastTargetUID": 0,
-						"playerNr": 1,
-						"lastAttacker": "",
-						"battle": false,
-						"maxHealth": 20,
-						"currentHealth": 20,
-						"zOrder": 0
+						"zOrder": 0,
+						"attackSound": "attack1",
+						"class": "knight"
 					},
 					"behaviors": {
-						"TileMovement": {
-							"properties": {
-								"grid-width": 32,
-								"grid-height": 32,
-								"grid-offset-x": 16,
-								"grid-offset-y": 16,
-								"speed-x": 200,
-								"speed-y": 200,
-								"enabled": true,
-								"default-controls": false,
-								"isometric": false
-							}
-						},
 						"Tween": {
 							"properties": {
 								"enabled": true
+							}
+						},
+						"Pin": {
+							"properties": {
+								"destroy": true
 							}
 						}
 					},
@@ -107,8 +91,8 @@
 						}
 					},
 					"world": {
-						"x": 80,
-						"y": 80,
+						"x": 64,
+						"y": -32,
 						"width": 48,
 						"height": 64,
 						"originX": 0.5,
@@ -167,9 +151,10 @@
 					},
 					"uid": 5,
 					"instanceVariables": {
-						"animationCooldown": 0.4,
+						"animationCooldown": 0.5,
 						"currentHealth": 100,
 						"currentTargetUID": 0,
+						"attackSound": "attack2",
 						"zOrder": 0
 					},
 					"behaviors": {
@@ -229,9 +214,10 @@
 					},
 					"uid": 9,
 					"instanceVariables": {
-						"animationCooldown": 0.4,
+						"animationCooldown": 0.5,
 						"currentHealth": 100,
 						"currentTargetUID": 0,
+						"attackSound": "attack2",
 						"zOrder": 0
 					},
 					"behaviors": {
@@ -291,9 +277,10 @@
 					},
 					"uid": 10,
 					"instanceVariables": {
-						"animationCooldown": 0.4,
+						"animationCooldown": 0.5,
 						"currentHealth": 20,
 						"currentTargetUID": 0,
+						"attackSound": "attack2",
 						"zOrder": 0
 					},
 					"behaviors": {
@@ -343,42 +330,21 @@
 					}
 				},
 				{
-					"type": "hero_1",
+					"type": "coin",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "idle",
+						"initial-animation": "Coin",
 						"initial-frame": 0,
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 12,
+					"uid": 20,
 					"instanceVariables": {
-						"angleOfMotion": 0,
-						"animationCooldown": 0.5,
-						"cooldownName": "cooldownPlayer2",
-						"cooldownNameEnemy": "cooldownEnemy2",
-						"lastTargetUID": 0,
-						"playerNr": 2,
-						"lastAttacker": "",
-						"battle": false,
-						"maxHealth": 20,
-						"currentHealth": 20,
-						"zOrder": 0
+						"zOrder": 0,
+						"pickupSound": "coin1",
+						"value": 8
 					},
 					"behaviors": {
-						"TileMovement": {
-							"properties": {
-								"grid-width": 32,
-								"grid-height": 32,
-								"grid-offset-x": 16,
-								"grid-offset-y": 16,
-								"speed-x": 200,
-								"speed-y": 200,
-								"enabled": true,
-								"default-controls": false,
-								"isometric": false
-							}
-						},
 						"Tween": {
 							"properties": {
 								"enabled": true
@@ -395,12 +361,321 @@
 						}
 					},
 					"world": {
-						"x": 560,
-						"y": 80,
+						"x": 208,
+						"y": 240,
+						"width": 48,
+						"height": 48,
+						"originX": 0.5,
+						"originY": 0.7083333333333334,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "coin",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Coin",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 25,
+					"instanceVariables": {
+						"zOrder": 0,
+						"pickupSound": "coin1",
+						"value": 4
+					},
+					"behaviors": {
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"effects": {
+						"AdjustHSL": {
+							"parameters": {
+								"hue": 0,
+								"saturation": 1,
+								"luminosity": 1
+							}
+						}
+					},
+					"world": {
+						"x": 400,
+						"y": 176,
+						"width": 48,
+						"height": 48,
+						"originX": 0.5,
+						"originY": 0.7083333333333334,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "coin",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Coin",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 26,
+					"instanceVariables": {
+						"zOrder": 0,
+						"pickupSound": "coin1",
+						"value": 6
+					},
+					"behaviors": {
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"effects": {
+						"AdjustHSL": {
+							"parameters": {
+								"hue": 0,
+								"saturation": 1,
+								"luminosity": 1
+							}
+						}
+					},
+					"world": {
+						"x": 336,
+						"y": 272,
+						"width": 48,
+						"height": 48,
+						"originX": 0.5,
+						"originY": 0.7083333333333334,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "coin",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Coin",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 27,
+					"instanceVariables": {
+						"zOrder": 0,
+						"pickupSound": "coin1",
+						"value": 5
+					},
+					"behaviors": {
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"effects": {
+						"AdjustHSL": {
+							"parameters": {
+								"hue": 0,
+								"saturation": 1,
+								"luminosity": 1
+							}
+						}
+					},
+					"world": {
+						"x": 80,
+						"y": 176,
+						"width": 48,
+						"height": 48,
+						"originX": 0.5,
+						"originY": 0.7083333333333334,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "classMage",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "idle",
+						"initial-frame": 0,
+						"enable-collisions": false,
+						"live-preview": false
+					},
+					"uid": 32,
+					"instanceVariables": {
+						"zOrder": 0,
+						"attackSound": "attack1",
+						"class": "mage"
+					},
+					"behaviors": {
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						},
+						"Pin": {
+							"properties": {
+								"destroy": true
+							}
+						}
+					},
+					"effects": {
+						"AdjustHSL": {
+							"parameters": {
+								"hue": 0,
+								"saturation": 1,
+								"luminosity": 1
+							}
+						}
+					},
+					"world": {
+						"x": 112,
+						"y": -32,
 						"width": 48,
 						"height": 64,
 						"originX": 0.5,
-						"originY": 0.625,
+						"originY": 0.5625,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "player_base",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 12,
+					"instanceVariables": {
+						"angleOfMotion": 0,
+						"animationCooldown": 0.2,
+						"cooldownName": "cooldownPlayer1",
+						"cooldownNameEnemy": "cooldownEnemy1",
+						"lastTargetUID": 0,
+						"playerNr": 1,
+						"battle": false,
+						"maxHealth": 20,
+						"currentHealth": 20,
+						"money": 0,
+						"classUID": 0,
+						"direction": ""
+					},
+					"behaviors": {
+						"TileMovement": {
+							"properties": {
+								"grid-width": 32,
+								"grid-height": 32,
+								"grid-offset-x": 16,
+								"grid-offset-y": 16,
+								"speed-x": 200,
+								"speed-y": 200,
+								"enabled": true,
+								"default-controls": false,
+								"isometric": false
+							}
+						}
+					},
+					"world": {
+						"x": 112,
+						"y": 80,
+						"width": 32,
+						"height": 32,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "player_base",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 33,
+					"instanceVariables": {
+						"angleOfMotion": 0,
+						"animationCooldown": 0.4,
+						"cooldownName": "cooldownPlayer2",
+						"cooldownNameEnemy": "cooldownEnemy2",
+						"lastTargetUID": 0,
+						"playerNr": 2,
+						"battle": false,
+						"maxHealth": 20,
+						"currentHealth": 20,
+						"money": 0,
+						"classUID": 0,
+						"direction": ""
+					},
+					"behaviors": {
+						"TileMovement": {
+							"properties": {
+								"grid-width": 32,
+								"grid-height": 32,
+								"grid-offset-x": 16,
+								"grid-offset-y": 16,
+								"speed-x": 200,
+								"speed-y": 200,
+								"enabled": true,
+								"default-controls": false,
+								"isometric": false
+							}
+						}
+					},
+					"world": {
+						"x": 432,
+						"y": 80,
+						"width": 32,
+						"height": 32,
+						"originX": 0.5,
+						"originY": 0.5,
 						"color": [
 							1,
 							1,
@@ -512,7 +787,14 @@
 		}
 	],
 	"sid": 690763732592129,
-	"nonworld-instances": [],
+	"nonworld-instances": [
+		{
+			"type": "dctClasses",
+			"properties": {},
+			"uid": 34,
+			"instanceVariables": {}
+		}
+	],
 	"effectTypes": [],
 	"width": 640,
 	"height": 360,

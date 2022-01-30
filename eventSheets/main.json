@@ -34,6 +34,10 @@
 			"includeSheet": "Items"
 		},
 		{
+			"eventType": "include",
+			"includeSheet": "Menu"
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "ZOrder",
@@ -531,6 +535,116 @@
 				}
 			],
 			"sid": 198300338258190
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Data",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 522699190421348
+						}
+					],
+					"actions": [
+						{
+							"id": "request-project-file",
+							"objectClass": "AJAX",
+							"sid": 772705126013084,
+							"parameters": {
+								"tag": "\"dctClasses\"",
+								"file": "dctClasses.json"
+							}
+						}
+					],
+					"sid": 580455505702337
+				},
+				{
+					"eventType": "comment",
+					"text": "Load dctClasses.json data to dictionary."
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-completed",
+							"objectClass": "AJAX",
+							"sid": 871836501223109,
+							"parameters": {
+								"tag": "\"dctClasses\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "load",
+							"objectClass": "dctClasses",
+							"sid": 443109951614564,
+							"parameters": {
+								"json": "AJAX.LastData"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "txtDebug",
+							"sid": 154322830492202,
+							"parameters": {
+								"text": "dctClasses.Get(\"0\")"
+							}
+						}
+					],
+					"sid": 317295321038539
+				}
+			],
+			"sid": 714684142029588
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Debug",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 733905867765955
+						},
+						{
+							"id": "pick-by-comparison",
+							"objectClass": "System",
+							"sid": 271805883421274,
+							"parameters": {
+								"object": "Players",
+								"expression": "Players.playerNr",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "txtDebug",
+							"sid": 287242338195846,
+							"parameters": {
+								"text": "round(cos(Players.angleOfMotion + 180)) * -1"
+							}
+						}
+					],
+					"sid": 697578855527168
+				}
+			],
+			"sid": 429926777181533
 		}
 	],
 	"sid": 678814153959917

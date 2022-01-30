@@ -88,15 +88,6 @@
 								},
 								{
 									"id": "set-instvar-value",
-									"objectClass": "Players",
-									"sid": 632914452597680,
-									"parameters": {
-										"instance-variable": "lastAttacker",
-										"value": "\"enemy\""
-									}
-								},
-								{
-									"id": "set-instvar-value",
 									"objectClass": "Enemies",
 									"sid": 952253114933132,
 									"parameters": {
@@ -116,12 +107,12 @@
 								{
 									"id": "play-by-name",
 									"objectClass": "Audio",
-									"sid": 453365643057785,
+									"sid": 773966241893032,
 									"parameters": {
 										"folder": "sounds",
-										"audio-file-name": "\"attack2\"",
+										"audio-file-name": "Enemies.attackSound",
 										"loop": "not-looping",
-										"volume": "0",
+										"volume": "-5",
 										"tag-optional": "\"\""
 									}
 								},
@@ -218,28 +209,6 @@
 								}
 							],
 							"isOrBlock": true
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 582736999916462
-								}
-							],
-							"actions": [
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Players",
-									"sid": 640098622492424,
-									"parameters": {
-										"instance-variable": "lastAttacker",
-										"value": "\"enemy\""
-									}
-								}
-							],
-							"sid": 898514611609861
 						}
 					]
 				}
