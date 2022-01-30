@@ -1,0 +1,30 @@
+{
+	"name": "ZOrder",
+	"plugin-id": "Sprite",
+	"sid": 520000786832227,
+	"instanceVariables": [
+		{
+			"name": "zOrder",
+			"type": "number",
+			"desc": "",
+			"sid": 576928829232377
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 364112658254257
+		}
+	],
+	"effectTypes": [
+		{
+			"effectId": "hsladjust",
+			"name": "AdjustHSL"
+		}
+	],
+	"members": [
+		"enemy_1",
+		"hero_1"
+	]
+}

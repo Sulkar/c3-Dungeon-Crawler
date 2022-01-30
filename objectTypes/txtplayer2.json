@@ -1,0 +1,20 @@
+{
+	"name": "txtPlayer2",
+	"plugin-id": "Spritefont2",
+	"sid": 822908934357234,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"image": {
+		"width": 128,
+		"height": 256,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 6914655,
+		"useCollisionPoly": true
+	}
+}

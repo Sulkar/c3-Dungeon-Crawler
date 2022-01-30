@@ -1,0 +1,286 @@
+{
+	"name": "Enemy",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "AttackEnemy",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Enemy attacks player"
+				},
+				{
+					"functionName": "enemyAttack",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "playerNr",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 174319013872974
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "pick-by-comparison",
+							"objectClass": "System",
+							"sid": 655880484467207,
+							"parameters": {
+								"object": "Players",
+								"expression": "Players.playerNr",
+								"comparison": 0,
+								"value": "playerNr"
+							}
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Enemies",
+							"sid": 344066217640947,
+							"parameters": {
+								"unique-id": "Players.lastTargetUID"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 829484265334112,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Enemies",
+									"sid": 336898577739108,
+									"parameters": {
+										"instance-variable": "currentTargetUID",
+										"comparison": 0,
+										"value": "Players.UID"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Enemies",
+									"sid": 589606665348531,
+									"parameters": {
+										"instance-variable": "currentTargetUID",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Players",
+									"sid": 561016101013268,
+									"parameters": {
+										"instance-variable": "battle",
+										"value": "true"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Players",
+									"sid": 632914452597680,
+									"parameters": {
+										"instance-variable": "lastAttacker",
+										"value": "\"enemy\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Enemies",
+									"sid": 952253114933132,
+									"parameters": {
+										"instance-variable": "currentTargetUID",
+										"value": "Players.UID"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Enemies",
+									"sid": 134083923951139,
+									"parameters": {
+										"animation": "\"attack\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "play-by-name",
+									"objectClass": "Audio",
+									"sid": 453365643057785,
+									"parameters": {
+										"folder": "sounds",
+										"audio-file-name": "\"attack2\"",
+										"loop": "not-looping",
+										"volume": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Players",
+									"sid": 990351461238559,
+									"parameters": {
+										"object": "effect_player_hit",
+										"layer": "\"World\"",
+										"image-point": "0",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "tween-one-property",
+									"objectClass": "effect_player_hit",
+									"sid": 724750497372440,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"FadeOut\"",
+										"property": "offsetHeight",
+										"end-value": "0",
+										"time": "0.25",
+										"ease": "default",
+										"destroy-on-complete": "yes",
+										"loop": "no",
+										"ping-pong": "no"
+									}
+								},
+								{
+									"id": "set-angle",
+									"objectClass": "effect_player_hit",
+									"sid": 929047241293051,
+									"parameters": {
+										"angle": "random(-30, 30)"
+									}
+								},
+								{
+									"id": "start-timer",
+									"objectClass": "game_manager",
+									"sid": 819845418851409,
+									"behaviorType": "Timer",
+									"parameters": {
+										"duration": "Enemies.animationCooldown",
+										"type": "once",
+										"tag": "Players.cooldownNameEnemy"
+									}
+								},
+								{
+									"callFunction": "flash",
+									"sid": 862945720806620,
+									"parameters": [
+										"Players.UID"
+									]
+								},
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "Players",
+									"sid": 491078708843420,
+									"parameters": {
+										"instance-variable": "currentHealth",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 529722264616644,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 223111876728566,
+											"parameters": {
+												"first-value": "round(cos(Players.angleOfMotion))",
+												"comparison": 1,
+												"second-value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-width",
+											"objectClass": "Enemies",
+											"sid": 931291989713393,
+											"parameters": {
+												"width": "abs(Self.Width) * round(cos(Players.angleOfMotion + 180)) * -1"
+											}
+										}
+									],
+									"sid": 689772667341322
+								}
+							],
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 582736999916462
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Players",
+									"sid": 640098622492424,
+									"parameters": {
+										"instance-variable": "lastAttacker",
+										"value": "\"enemy\""
+									}
+								}
+							],
+							"sid": 898514611609861
+						}
+					]
+				}
+			],
+			"sid": 441112496499633
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "TickEnemy",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-animation-finished",
+							"objectClass": "Enemies",
+							"sid": 495534444677119,
+							"parameters": {
+								"animation": "\"attack\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Enemies",
+							"sid": 741121794912741,
+							"parameters": {
+								"animation": "\"idle\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 390569721422587
+				}
+			],
+			"sid": 893613555782307
+		}
+	],
+	"sid": 618049080198030
+}

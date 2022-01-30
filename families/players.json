@@ -1,0 +1,78 @@
+{
+	"name": "Players",
+	"plugin-id": "Sprite",
+	"sid": 764699038513691,
+	"instanceVariables": [
+		{
+			"name": "angleOfMotion",
+			"type": "number",
+			"desc": "",
+			"sid": 324031616735984
+		},
+		{
+			"name": "animationCooldown",
+			"type": "number",
+			"desc": "",
+			"sid": 723925124523324
+		},
+		{
+			"name": "cooldownName",
+			"type": "string",
+			"desc": "",
+			"sid": 737955498705527
+		},
+		{
+			"name": "cooldownNameEnemy",
+			"type": "string",
+			"desc": "",
+			"sid": 124989877547881
+		},
+		{
+			"name": "lastTargetUID",
+			"type": "number",
+			"desc": "",
+			"sid": 263181480937682
+		},
+		{
+			"name": "playerNr",
+			"type": "number",
+			"desc": "",
+			"sid": 121537231849359
+		},
+		{
+			"name": "lastAttacker",
+			"type": "string",
+			"desc": "",
+			"sid": 511172470940378
+		},
+		{
+			"name": "battle",
+			"type": "boolean",
+			"desc": "",
+			"sid": 844683303488487
+		},
+		{
+			"name": "maxHealth",
+			"type": "number",
+			"desc": "",
+			"sid": 769681832277181
+		},
+		{
+			"name": "currentHealth",
+			"type": "number",
+			"desc": "",
+			"sid": 523522428070926
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "TileMovement",
+			"name": "TileMovement",
+			"sid": 261807467176556
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"hero_1"
+	]
+}

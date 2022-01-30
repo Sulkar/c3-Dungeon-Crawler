@@ -1,0 +1,36 @@
+{
+	"name": "Enemies",
+	"plugin-id": "Sprite",
+	"sid": 857075675560954,
+	"instanceVariables": [
+		{
+			"name": "animationCooldown",
+			"type": "number",
+			"desc": "",
+			"sid": 840268098326809
+		},
+		{
+			"name": "currentHealth",
+			"type": "number",
+			"desc": "",
+			"sid": 541844587436092
+		},
+		{
+			"name": "currentTargetUID",
+			"type": "number",
+			"desc": "",
+			"sid": 176207410484311
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "TileMovement",
+			"name": "TileMovement",
+			"sid": 671407476906527
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"enemy_1"
+	]
+}

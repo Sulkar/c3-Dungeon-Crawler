@@ -1,0 +1,818 @@
+{
+	"name": "Player",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Controls",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Player1",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-comparison",
+									"objectClass": "System",
+									"sid": 545256844908128,
+									"parameters": {
+										"object": "Players",
+										"expression": "Players.playerNr",
+										"comparison": 0,
+										"value": "1"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Players",
+									"sid": 142914335981860,
+									"parameters": {
+										"instance-variable": "battle"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "is-timer-running",
+									"objectClass": "game_manager",
+									"sid": 369602116085318,
+									"behaviorType": "Timer",
+									"parameters": {
+										"tag": "Players.cooldownName"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [],
+							"sid": 306716504710543,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "key-is-down",
+											"objectClass": "Keyboard",
+											"sid": 866340332798758,
+											"parameters": {
+												"key": 39
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-mirrored",
+											"objectClass": "Players",
+											"sid": 378365189835268,
+											"parameters": {
+												"state": "not-mirrored"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Players",
+											"sid": 649281178080418,
+											"parameters": {
+												"instance-variable": "angleOfMotion",
+												"value": "0"
+											}
+										},
+										{
+											"callFunction": "movePlayer",
+											"sid": 321113726044882,
+											"parameters": [
+												"Players.playerNr"
+											]
+										}
+									],
+									"sid": 976084448363862,
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "key-is-down",
+											"objectClass": "Keyboard",
+											"sid": 849030744552227,
+											"parameters": {
+												"key": 37
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-mirrored",
+											"objectClass": "Players",
+											"sid": 195173813606543,
+											"parameters": {
+												"state": "mirrored"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Players",
+											"sid": 817182974368088,
+											"parameters": {
+												"instance-variable": "angleOfMotion",
+												"value": "180"
+											}
+										},
+										{
+											"callFunction": "movePlayer",
+											"sid": 486404273946071,
+											"parameters": [
+												"Players.playerNr"
+											]
+										}
+									],
+									"sid": 360879605501420,
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "key-is-down",
+											"objectClass": "Keyboard",
+											"sid": 216303798019713,
+											"parameters": {
+												"key": 38
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Players",
+											"sid": 954231727763040,
+											"parameters": {
+												"instance-variable": "angleOfMotion",
+												"value": "270"
+											}
+										},
+										{
+											"callFunction": "movePlayer",
+											"sid": 735200607837028,
+											"parameters": [
+												"Players.playerNr"
+											]
+										}
+									],
+									"sid": 979309429289576,
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "key-is-down",
+											"objectClass": "Keyboard",
+											"sid": 686557837732833,
+											"parameters": {
+												"key": 40
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Players",
+											"sid": 574724707680211,
+											"parameters": {
+												"instance-variable": "angleOfMotion",
+												"value": "90"
+											}
+										},
+										{
+											"callFunction": "movePlayer",
+											"sid": 362656905641143,
+											"parameters": [
+												"Players.playerNr"
+											]
+										}
+									],
+									"sid": 104602699074267,
+									"isOrBlock": true
+								}
+							]
+						}
+					],
+					"sid": 295665878324510
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Player2",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-comparison",
+									"objectClass": "System",
+									"sid": 605534843697228,
+									"parameters": {
+										"object": "Players",
+										"expression": "Players.playerNr",
+										"comparison": 0,
+										"value": "2"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Players",
+									"sid": 898942710381638,
+									"parameters": {
+										"instance-variable": "battle"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "is-timer-running",
+									"objectClass": "game_manager",
+									"sid": 500504764834298,
+									"behaviorType": "Timer",
+									"parameters": {
+										"tag": "Players.cooldownName"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [],
+							"sid": 175081788084482,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-axis",
+											"objectClass": "Gamepad",
+											"sid": 102926803063189,
+											"parameters": {
+												"gamepad": "0",
+												"axis": "left-analog-x-axis",
+												"comparison": 5,
+												"value": "25"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-mirrored",
+											"objectClass": "Players",
+											"sid": 485331219783893,
+											"parameters": {
+												"state": "not-mirrored"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Players",
+											"sid": 502070951100791,
+											"parameters": {
+												"instance-variable": "angleOfMotion",
+												"value": "0"
+											}
+										},
+										{
+											"callFunction": "movePlayer",
+											"sid": 688607232148184,
+											"parameters": [
+												"Players.playerNr"
+											]
+										}
+									],
+									"sid": 689330123581393,
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-axis",
+											"objectClass": "Gamepad",
+											"sid": 792303416015558,
+											"parameters": {
+												"gamepad": "0",
+												"axis": "left-analog-x-axis",
+												"comparison": 3,
+												"value": "-25"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-mirrored",
+											"objectClass": "Players",
+											"sid": 111854555222734,
+											"parameters": {
+												"state": "mirrored"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Players",
+											"sid": 842997094425778,
+											"parameters": {
+												"instance-variable": "angleOfMotion",
+												"value": "180"
+											}
+										},
+										{
+											"callFunction": "movePlayer",
+											"sid": 602749014037731,
+											"parameters": [
+												"Players.playerNr"
+											]
+										}
+									],
+									"sid": 711650242489139,
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-axis",
+											"objectClass": "Gamepad",
+											"sid": 391035762555631,
+											"parameters": {
+												"gamepad": "0",
+												"axis": "left-analog-y-axis",
+												"comparison": 3,
+												"value": "-25"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Players",
+											"sid": 958632328568467,
+											"parameters": {
+												"instance-variable": "angleOfMotion",
+												"value": "270"
+											}
+										},
+										{
+											"callFunction": "movePlayer",
+											"sid": 101219318196539,
+											"parameters": [
+												"Players.playerNr"
+											]
+										}
+									],
+									"sid": 603892304298362,
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-axis",
+											"objectClass": "Gamepad",
+											"sid": 961067152070014,
+											"parameters": {
+												"gamepad": "0",
+												"axis": "left-analog-y-axis",
+												"comparison": 5,
+												"value": "25"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Players",
+											"sid": 501166156572445,
+											"parameters": {
+												"instance-variable": "angleOfMotion",
+												"value": "90"
+											}
+										},
+										{
+											"callFunction": "movePlayer",
+											"sid": 855442221089523,
+											"parameters": [
+												"Players.playerNr"
+											]
+										}
+									],
+									"sid": 871830920641420,
+									"isOrBlock": true
+								}
+							]
+						}
+					],
+					"sid": 416851242922019
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Movement",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Moves player and checks for collision"
+						},
+						{
+							"functionName": "movePlayer",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "playerNr",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 747126468823244
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [],
+							"sid": 459934329413920,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-comparison",
+											"objectClass": "System",
+											"sid": 189165688238306,
+											"parameters": {
+												"object": "Players",
+												"expression": "Players.playerNr",
+												"comparison": 0,
+												"value": "playerNr"
+											}
+										},
+										{
+											"id": "is-moving",
+											"objectClass": "Players",
+											"sid": 193345826081326,
+											"behaviorType": "TileMovement",
+											"isInverted": true
+										}
+									],
+									"actions": [],
+									"sid": 786517066055124,
+									"children": [
+										{
+											"eventType": "comment",
+											"text": "Hit Enemy: stop moving and start battle"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-overlapping-at-offset",
+													"objectClass": "Players",
+													"sid": 477608814355395,
+													"parameters": {
+														"object": "Enemies",
+														"offset-x": "round(cos(Players.angleOfMotion)*TILESIZE)",
+														"offset-y": "round(sin(Players.angleOfMotion)*TILESIZE)"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Players",
+													"sid": 506026053685766,
+													"parameters": {
+														"instance-variable": "lastTargetUID",
+														"value": "Enemies.UID"
+													}
+												},
+												{
+													"callFunction": "playerAttack",
+													"sid": 851194703172874,
+													"parameters": [
+														"Players.playerNr"
+													]
+												}
+											],
+											"sid": 705179959104503
+										},
+										{
+											"eventType": "comment",
+											"text": "Else: move"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 408460947101614
+												},
+												{
+													"id": "is-overlapping-at-offset",
+													"objectClass": "Players",
+													"sid": 198003578338983,
+													"parameters": {
+														"object": "PlayersCollision",
+														"offset-x": "round(cos(Players.angleOfMotion)*TILESIZE)",
+														"offset-y": "round(sin(Players.angleOfMotion)*TILESIZE)"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "set-grid-position",
+													"objectClass": "Players",
+													"sid": 187744430427873,
+													"behaviorType": "TileMovement",
+													"parameters": {
+														"x": "Players.TileMovement.GridX+cos(Players.angleOfMotion)",
+														"y": "Players.TileMovement.GridY+sin(Players.angleOfMotion)",
+														"instant": "animate"
+													}
+												}
+											],
+											"sid": 648697570944848
+										}
+									]
+								}
+							]
+						}
+					],
+					"sid": 139418184285564
+				}
+			],
+			"sid": 327934681903331
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "AttackPlayer",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Player attacks enemy"
+				},
+				{
+					"functionName": "playerAttack",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "playerNr",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 884177187271473
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "pick-by-comparison",
+							"objectClass": "System",
+							"sid": 407329267549211,
+							"parameters": {
+								"object": "Players",
+								"expression": "Players.playerNr",
+								"comparison": 0,
+								"value": "playerNr"
+							}
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Enemies",
+							"sid": 665494681195828,
+							"parameters": {
+								"unique-id": "Players.lastTargetUID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Players",
+							"sid": 895194500954949,
+							"parameters": {
+								"instance-variable": "battle",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Players",
+							"sid": 976701976893472,
+							"parameters": {
+								"instance-variable": "lastAttacker",
+								"value": "\"player\""
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Players",
+							"sid": 579383090492768,
+							"parameters": {
+								"animation": "\"attack\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "play-by-name",
+							"objectClass": "Audio",
+							"sid": 561161967267099,
+							"parameters": {
+								"folder": "sounds",
+								"audio-file-name": "\"attack1\"",
+								"loop": "not-looping",
+								"volume": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Enemies",
+							"sid": 838080013176020,
+							"parameters": {
+								"object": "effect_sword_slash",
+								"layer": "\"World\"",
+								"image-point": "0",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "effect_sword_slash",
+							"sid": 733987324185942,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"FadeOut\"",
+								"property": "offsetHeight",
+								"end-value": "0",
+								"time": "0.25",
+								"ease": "default",
+								"destroy-on-complete": "yes",
+								"loop": "no",
+								"ping-pong": "no"
+							}
+						},
+						{
+							"id": "set-angle",
+							"objectClass": "effect_sword_slash",
+							"sid": 313786258885891,
+							"parameters": {
+								"angle": "random(-30, 30)"
+							}
+						},
+						{
+							"id": "start-timer",
+							"objectClass": "game_manager",
+							"sid": 431821675925228,
+							"behaviorType": "Timer",
+							"parameters": {
+								"duration": "Players.animationCooldown",
+								"type": "once",
+								"tag": "Players.cooldownName"
+							}
+						},
+						{
+							"callFunction": "flash",
+							"sid": 888095985599504,
+							"parameters": [
+								"Players.lastTargetUID"
+							]
+						},
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "Enemies",
+							"sid": 358816316288995,
+							"parameters": {
+								"instance-variable": "currentHealth",
+								"value": "5"
+							}
+						}
+					],
+					"sid": 353556452117754
+				},
+				{
+					"eventType": "comment",
+					"text": "Update players healthbar depending on its current health."
+				},
+				{
+					"functionName": "updateHealthbar",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "playerNr",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 169104051821932
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "pick-by-comparison",
+							"objectClass": "System",
+							"sid": 742960205280939,
+							"parameters": {
+								"object": "Players",
+								"expression": "Players.playerNr",
+								"comparison": 0,
+								"value": "playerNr"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 706635831263916,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-comparison",
+									"objectClass": "System",
+									"sid": 293205882434907,
+									"parameters": {
+										"object": "playerHealthbar",
+										"expression": "playerHealthbar.playerNr",
+										"comparison": 0,
+										"value": "playerNr"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-width",
+									"objectClass": "playerHealthbar",
+									"sid": 696805971268379,
+									"parameters": {
+										"width": "Self.maxWidth * (Players.currentHealth/Players.maxHealth)"
+									}
+								}
+							],
+							"sid": 343353548857746
+						}
+					]
+				}
+			],
+			"sid": 946692618767174
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "TickPlayer",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-animation-finished",
+							"objectClass": "Players",
+							"sid": 748312684871586,
+							"parameters": {
+								"animation": "\"attack\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Players",
+							"sid": 101913882297246,
+							"parameters": {
+								"animation": "\"idle\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 781310117608997
+				}
+			],
+			"sid": 272208295717401
+		}
+	],
+	"sid": 404086459962100
+}

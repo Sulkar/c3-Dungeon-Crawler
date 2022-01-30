@@ -1,0 +1,11 @@
+{
+	"name": "PlayersCollision",
+	"plugin-id": "Sprite",
+	"sid": 877763921839655,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"hero_1"
+	]
+}
