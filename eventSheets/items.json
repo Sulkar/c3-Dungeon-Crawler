@@ -2,6 +2,10 @@
 	"name": "Items",
 	"events": [
 		{
+			"eventType": "comment",
+			"text": "Item: coin"
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{

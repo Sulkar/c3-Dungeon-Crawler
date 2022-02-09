@@ -38,6 +38,78 @@
 			"includeSheet": "Menu"
 		},
 		{
+			"eventType": "include",
+			"includeSheet": "Skills"
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Data",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 554717797087498
+						}
+					],
+					"actions": [
+						{
+							"id": "request-project-file",
+							"objectClass": "AJAX",
+							"sid": 256170896834598,
+							"parameters": {
+								"tag": "\"dctClasses\"",
+								"file": "dctClasses.json"
+							}
+						}
+					],
+					"sid": 830541227973862
+				},
+				{
+					"eventType": "comment",
+					"text": "Load dctClasses.json data to dictionary."
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-completed",
+							"objectClass": "AJAX",
+							"sid": 889080107446239,
+							"parameters": {
+								"tag": "\"dctClasses\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "load",
+							"objectClass": "dctClasses",
+							"sid": 580624989254383,
+							"parameters": {
+								"json": "AJAX.LastData"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "txtDebug",
+							"sid": 946365770152769,
+							"parameters": {
+								"text": "dctClasses.Get(\"0\")"
+							}
+						}
+					],
+					"sid": 703510674588786
+				}
+			],
+			"sid": 899914215641545
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "ZOrder",
@@ -53,30 +125,231 @@
 							"sid": 897112964195639
 						}
 					],
-					"actions": [
+					"actions": [],
+					"sid": 480972026873685,
+					"children": [
 						{
-							"id": "set-instvar-value",
-							"objectClass": "ZOrder",
-							"sid": 977587177824666,
-							"parameters": {
-								"instance-variable": "zOrder",
-								"value": "Self.Y"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "ZOrder",
+									"sid": 254432620056220,
+									"parameters": {
+										"instance-variable": "ignore"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "ZOrder",
+									"sid": 425982717962246,
+									"parameters": {
+										"instance-variable": "zOrder",
+										"value": "Self.Y"
+									}
+								}
+							],
+							"sid": 531235793090738
 						},
 						{
-							"id": "sort-z-order",
-							"objectClass": "System",
-							"sid": 970540416480124,
-							"parameters": {
-								"object": "ZOrder",
-								"instance-variable": {
-									"name": "zOrder",
-									"objectClass": "ZOrder"
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "sort-z-order",
+									"objectClass": "System",
+									"sid": 912840088368048,
+									"parameters": {
+										"object": "ZOrder",
+										"instance-variable": {
+											"name": "zOrder",
+											"objectClass": "ZOrder"
+										}
+									}
 								}
-							}
+							],
+							"sid": 418246631874104
+						}
+					]
+				},
+				{
+					"functionName": "zOrderBattle",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "attackerUID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 983269566264389
+						},
+						{
+							"name": "defenderUID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 757848087788908
 						}
 					],
-					"sid": 480972026873685
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 769157041086645,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "ZOrder",
+									"sid": 776660309641671,
+									"parameters": {
+										"unique-id": "attackerUID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "ZOrder",
+									"sid": 294878447721379,
+									"parameters": {
+										"instance-variable": "ignore",
+										"value": "true"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "ZOrder",
+									"sid": 839374560090603,
+									"parameters": {
+										"instance-variable": "zOrder",
+										"value": "Self.Y+TILESIZE/2"
+									}
+								}
+							],
+							"sid": 382071906539016
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "ZOrder",
+									"sid": 769623417398474,
+									"parameters": {
+										"unique-id": "defenderUID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "ZOrder",
+									"sid": 857060412973252,
+									"parameters": {
+										"instance-variable": "ignore",
+										"value": "true"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "ZOrder",
+									"sid": 899401949392807,
+									"parameters": {
+										"instance-variable": "zOrder",
+										"value": "Self.Y"
+									}
+								}
+							],
+							"sid": 327506860642776
+						}
+					]
+				},
+				{
+					"functionName": "zOrderReset",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "attackerUID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 504706102341510
+						},
+						{
+							"name": "defenderUID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 935348322004389
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 412977240726445,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "ZOrder",
+									"sid": 483949396367991,
+									"parameters": {
+										"unique-id": "attackerUID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "ZOrder",
+									"sid": 229778724104502,
+									"parameters": {
+										"instance-variable": "ignore",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 493975438249807
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "ZOrder",
+									"sid": 270557829077821,
+									"parameters": {
+										"unique-id": "defenderUID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "ZOrder",
+									"sid": 686557467402303,
+									"parameters": {
+										"instance-variable": "ignore",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 599581385849219
+						}
+					]
 				}
 			],
 			"sid": 215496818805391
@@ -485,18 +758,38 @@
 											],
 											"actions": [
 												{
-													"id": "destroy",
-													"objectClass": "Enemies",
-													"sid": 103263388870118
-												},
-												{
 													"id": "set-boolean-instvar",
 													"objectClass": "Players",
-													"sid": 191812955142409,
+													"sid": 665347229401904,
 													"parameters": {
 														"instance-variable": "battle",
 														"value": "false"
 													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 925806465032155,
+													"parameters": {
+														"seconds": "0.2"
+													}
+												},
+												{
+													"id": "play-by-name",
+													"objectClass": "Audio",
+													"sid": 929574819400739,
+													"parameters": {
+														"folder": "sounds",
+														"audio-file-name": "Enemies.deathSound",
+														"loop": "not-looping",
+														"volume": "0",
+														"tag-optional": "\"\""
+													}
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Enemies",
+													"sid": 103263388870118
 												}
 											],
 											"sid": 780616333363066
@@ -535,74 +828,6 @@
 				}
 			],
 			"sid": 198300338258190
-		},
-		{
-			"eventType": "group",
-			"disabled": false,
-			"title": "Data",
-			"description": "",
-			"isActiveOnStart": true,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-start-of-layout",
-							"objectClass": "System",
-							"sid": 522699190421348
-						}
-					],
-					"actions": [
-						{
-							"id": "request-project-file",
-							"objectClass": "AJAX",
-							"sid": 772705126013084,
-							"parameters": {
-								"tag": "\"dctClasses\"",
-								"file": "dctClasses.json"
-							}
-						}
-					],
-					"sid": 580455505702337
-				},
-				{
-					"eventType": "comment",
-					"text": "Load dctClasses.json data to dictionary."
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-completed",
-							"objectClass": "AJAX",
-							"sid": 871836501223109,
-							"parameters": {
-								"tag": "\"dctClasses\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "load",
-							"objectClass": "dctClasses",
-							"sid": 443109951614564,
-							"parameters": {
-								"json": "AJAX.LastData"
-							}
-						},
-						{
-							"id": "set-text",
-							"objectClass": "txtDebug",
-							"sid": 154322830492202,
-							"parameters": {
-								"text": "dctClasses.Get(\"0\")"
-							}
-						}
-					],
-					"sid": 317295321038539
-				}
-			],
-			"sid": 714684142029588
 		},
 		{
 			"eventType": "group",

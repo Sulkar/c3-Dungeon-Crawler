@@ -26,10 +26,10 @@
 					"ownData": {
 						"tilemapData": {
 							"width": 20,
-							"height": 11,
+							"height": 12,
 							"max-width": 228,
-							"max-height": 128,
-							"data": "29184x45"
+							"max-height": 129,
+							"data": "128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0,128x45,0"
 						},
 						"tile-width": 32,
 						"tile-height": 32,
@@ -42,7 +42,7 @@
 						"x": 0,
 						"y": 0,
 						"width": 640,
-						"height": 360,
+						"height": 384,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -66,6 +66,7 @@
 					"uid": 2,
 					"instanceVariables": {
 						"zOrder": 0,
+						"ignore": false,
 						"attackSound": "attack1",
 						"class": "knight"
 					},
@@ -151,11 +152,13 @@
 					},
 					"uid": 5,
 					"instanceVariables": {
-						"animationCooldown": 0.5,
+						"animationCooldown": 1,
 						"currentHealth": 100,
 						"currentTargetUID": 0,
 						"attackSound": "attack2",
-						"zOrder": 0
+						"deathSound": "",
+						"zOrder": 0,
+						"ignore": false
 					},
 					"behaviors": {
 						"TileMovement": {
@@ -166,7 +169,7 @@
 								"grid-offset-y": 16,
 								"speed-x": 100,
 								"speed-y": 100,
-								"enabled": true,
+								"enabled": false,
 								"default-controls": false,
 								"isometric": false
 							}
@@ -212,76 +215,15 @@
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 9,
-					"instanceVariables": {
-						"animationCooldown": 0.5,
-						"currentHealth": 100,
-						"currentTargetUID": 0,
-						"attackSound": "attack2",
-						"zOrder": 0
-					},
-					"behaviors": {
-						"TileMovement": {
-							"properties": {
-								"grid-width": 32,
-								"grid-height": 32,
-								"grid-offset-x": 16,
-								"grid-offset-y": 16,
-								"speed-x": 100,
-								"speed-y": 100,
-								"enabled": true,
-								"default-controls": false,
-								"isometric": false
-							}
-						},
-						"Tween": {
-							"properties": {
-								"enabled": true
-							}
-						}
-					},
-					"effects": {
-						"AdjustHSL": {
-							"parameters": {
-								"hue": 0,
-								"saturation": 1,
-								"luminosity": 1
-							}
-						}
-					},
-					"world": {
-						"x": 176,
-						"y": 80,
-						"width": 48,
-						"height": 64,
-						"originX": 0.5,
-						"originY": 0.625,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "enemy_1",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "idle",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
 					"uid": 10,
 					"instanceVariables": {
-						"animationCooldown": 0.5,
+						"animationCooldown": 1,
 						"currentHealth": 20,
 						"currentTargetUID": 0,
 						"attackSound": "attack2",
-						"zOrder": 0
+						"deathSound": "",
+						"zOrder": 0,
+						"ignore": false
 					},
 					"behaviors": {
 						"TileMovement": {
@@ -292,7 +234,7 @@
 								"grid-offset-y": 16,
 								"speed-x": 100,
 								"speed-y": 100,
-								"enabled": true,
+								"enabled": false,
 								"default-controls": false,
 								"isometric": false
 							}
@@ -341,6 +283,7 @@
 					"uid": 20,
 					"instanceVariables": {
 						"zOrder": 0,
+						"ignore": false,
 						"pickupSound": "coin1",
 						"value": 8
 					},
@@ -389,6 +332,7 @@
 					"uid": 25,
 					"instanceVariables": {
 						"zOrder": 0,
+						"ignore": false,
 						"pickupSound": "coin1",
 						"value": 4
 					},
@@ -437,6 +381,7 @@
 					"uid": 26,
 					"instanceVariables": {
 						"zOrder": 0,
+						"ignore": false,
 						"pickupSound": "coin1",
 						"value": 6
 					},
@@ -485,6 +430,7 @@
 					"uid": 27,
 					"instanceVariables": {
 						"zOrder": 0,
+						"ignore": false,
 						"pickupSound": "coin1",
 						"value": 5
 					},
@@ -533,6 +479,7 @@
 					"uid": 32,
 					"instanceVariables": {
 						"zOrder": 0,
+						"ignore": false,
 						"attackSound": "attack1",
 						"class": "mage"
 					},
@@ -586,7 +533,7 @@
 					"uid": 12,
 					"instanceVariables": {
 						"angleOfMotion": 0,
-						"animationCooldown": 0.2,
+						"animationCooldown": 1,
 						"cooldownName": "cooldownPlayer1",
 						"cooldownNameEnemy": "cooldownEnemy1",
 						"lastTargetUID": 0,
@@ -610,6 +557,12 @@
 								"enabled": true,
 								"default-controls": false,
 								"isometric": false
+							}
+						},
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"tags": ""
 							}
 						}
 					},
@@ -642,7 +595,7 @@
 					"uid": 33,
 					"instanceVariables": {
 						"angleOfMotion": 0,
-						"animationCooldown": 0.4,
+						"animationCooldown": 0.8,
 						"cooldownName": "cooldownPlayer2",
 						"cooldownNameEnemy": "cooldownEnemy2",
 						"lastTargetUID": 0,
@@ -667,6 +620,12 @@
 								"default-controls": false,
 								"isometric": false
 							}
+						},
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"tags": ""
+							}
 						}
 					},
 					"world": {
@@ -685,11 +644,371 @@
 						"angle": 0,
 						"zElevation": 0
 					}
+				},
+				{
+					"type": "destructibles",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Default",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 43,
+					"instanceVariables": {
+						"animationCooldown": 0.5,
+						"currentHealth": 1,
+						"currentTargetUID": 0,
+						"attackSound": "",
+						"deathSound": "destructible_destroy",
+						"zOrder": 0,
+						"ignore": false
+					},
+					"behaviors": {
+						"TileMovement": {
+							"properties": {
+								"grid-width": 32,
+								"grid-height": 32,
+								"grid-offset-x": 16,
+								"grid-offset-y": 16,
+								"speed-x": 100,
+								"speed-y": 100,
+								"enabled": false,
+								"default-controls": false,
+								"isometric": false
+							}
+						},
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"effects": {
+						"AdjustHSL": {
+							"parameters": {
+								"hue": 0,
+								"saturation": 1,
+								"luminosity": 1
+							}
+						}
+					},
+					"world": {
+						"x": 240,
+						"y": 48,
+						"width": 32,
+						"height": 32,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "destructibles",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Default",
+						"initial-frame": 7,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 44,
+					"instanceVariables": {
+						"animationCooldown": 0.5,
+						"currentHealth": 1,
+						"currentTargetUID": 0,
+						"attackSound": "",
+						"deathSound": "destructible_destroy",
+						"zOrder": 0,
+						"ignore": false
+					},
+					"behaviors": {
+						"TileMovement": {
+							"properties": {
+								"grid-width": 32,
+								"grid-height": 32,
+								"grid-offset-x": 16,
+								"grid-offset-y": 16,
+								"speed-x": 100,
+								"speed-y": 100,
+								"enabled": false,
+								"default-controls": false,
+								"isometric": false
+							}
+						},
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"effects": {
+						"AdjustHSL": {
+							"parameters": {
+								"hue": 0,
+								"saturation": 1,
+								"luminosity": 1
+							}
+						}
+					},
+					"world": {
+						"x": 144,
+						"y": 272,
+						"width": 32,
+						"height": 32,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "destructibles",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Default",
+						"initial-frame": 8,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 45,
+					"instanceVariables": {
+						"animationCooldown": 0.5,
+						"currentHealth": 1,
+						"currentTargetUID": 0,
+						"attackSound": "",
+						"deathSound": "destructible_destroy",
+						"zOrder": 0,
+						"ignore": false
+					},
+					"behaviors": {
+						"TileMovement": {
+							"properties": {
+								"grid-width": 32,
+								"grid-height": 32,
+								"grid-offset-x": 16,
+								"grid-offset-y": 16,
+								"speed-x": 100,
+								"speed-y": 100,
+								"enabled": false,
+								"default-controls": false,
+								"isometric": false
+							}
+						},
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"effects": {
+						"AdjustHSL": {
+							"parameters": {
+								"hue": 0,
+								"saturation": 1,
+								"luminosity": 1
+							}
+						}
+					},
+					"world": {
+						"x": 528,
+						"y": 208,
+						"width": 32,
+						"height": 32,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Fireball",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 46,
+					"instanceVariables": {},
+					"behaviors": {
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"world": {
+						"x": 176,
+						"y": -32,
+						"width": 20,
+						"height": 23,
+						"originX": 0.46153846153846156,
+						"originY": 0.5333333333333333,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Heal",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 47,
+					"instanceVariables": {},
+					"behaviors": {
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"world": {
+						"x": 208,
+						"y": -32,
+						"width": 20,
+						"height": 20,
+						"originX": 0.531578947368421,
+						"originY": 0.46842105263157896,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "SkillIcon",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 50,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 240,
+						"y": -32,
+						"width": 32,
+						"height": 32,
+						"originX": 0.5238095238095238,
+						"originY": 0.5238095238095238,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "enemy_1",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "idle",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 9,
+					"instanceVariables": {
+						"animationCooldown": 1.2,
+						"currentHealth": 100,
+						"currentTargetUID": 0,
+						"attackSound": "attack2",
+						"deathSound": "",
+						"zOrder": 0,
+						"ignore": false
+					},
+					"behaviors": {
+						"TileMovement": {
+							"properties": {
+								"grid-width": 32,
+								"grid-height": 32,
+								"grid-offset-x": 16,
+								"grid-offset-y": 16,
+								"speed-x": 100,
+								"speed-y": 100,
+								"enabled": false,
+								"default-controls": false,
+								"isometric": false
+							}
+						},
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"effects": {
+						"AdjustHSL": {
+							"parameters": {
+								"hue": 0,
+								"saturation": 1,
+								"luminosity": 1
+							}
+						}
+					},
+					"world": {
+						"x": 176,
+						"y": 80,
+						"width": 48,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.625,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
 				}
 			],
 			"sid": 304804295437621,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
+			"isInitiallyInteractive": true,
 			"color": [
 				1,
 				1,
@@ -712,6 +1031,39 @@
 			"useRenderCells": false,
 			"blendMode": "normal",
 			"zElevation": 0,
+			"global": false
+		},
+		{
+			"name": "Battle",
+			"overriden": 0,
+			"subLayers": [],
+			"instances": [],
+			"sid": 776652112641578,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"isInitiallyInteractive": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				1,
+				1,
+				1,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"renderingMode": "3d",
+			"drawOrder": "z-order",
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"zElevation": 1,
 			"global": false
 		},
 		{
@@ -761,6 +1113,40 @@
 			"sid": 588853120464189,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
+			"isInitiallyInteractive": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				1,
+				1,
+				1,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"renderingMode": "3d",
+			"drawOrder": "z-order",
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"zElevation": 0,
+			"global": false
+		},
+		{
+			"name": "classSelect",
+			"overriden": 1,
+			"subLayers": [],
+			"instances": [],
+			"sid": 267447673761635,
+			"effectTypes": [],
+			"isInitiallyVisible": false,
+			"isInitiallyInteractive": true,
 			"color": [
 				1,
 				1,
@@ -792,6 +1178,18 @@
 			"type": "dctClasses",
 			"properties": {},
 			"uid": 34,
+			"instanceVariables": {}
+		},
+		{
+			"type": "dctPlayer1",
+			"properties": {},
+			"uid": 48,
+			"instanceVariables": {}
+		},
+		{
+			"type": "dctPlayer2",
+			"properties": {},
+			"uid": 49,
 			"instanceVariables": {}
 		}
 	],

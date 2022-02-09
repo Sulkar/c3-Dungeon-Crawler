@@ -1,7 +1,7 @@
 {
-	"name": "player_base",
+	"name": "Sprite",
 	"plugin-id": "Sprite",
-	"sid": 547525554044023,
+	"sid": 957843459939519,
 	"isGlobal": false,
 	"instanceVariables": [],
 	"behaviorTypes": [],
@@ -11,19 +11,19 @@
 			{
 				"frames": [
 					{
-						"width": 32,
-						"height": 32,
+						"width": 250,
+						"height": 250,
 						"originX": 0.5,
 						"originY": 0.5,
 						"originalSource": "",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 589967,
+						"imageSpriteId": 9770991,
 						"useCollisionPoly": true,
 						"duration": 1
 					}
 				],
-				"sid": 234684666036946,
+				"sid": 338724532422868,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,

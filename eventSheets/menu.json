@@ -3,7 +3,7 @@
 	"events": [
 		{
 			"eventType": "variable",
-			"name": "MENU_OPEN",
+			"name": "MENU_CLASS_SELECT_OPEN",
 			"type": "boolean",
 			"initialValue": "false",
 			"comment": "",
@@ -34,252 +34,169 @@
 			"sid": 142560107195019
 		},
 		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-key-pressed",
-					"objectClass": "Keyboard",
-					"sid": 891378538939636,
-					"parameters": {
-						"key": 27
-					}
-				},
-				{
-					"id": "on-button-pressed",
-					"objectClass": "Gamepad",
-					"sid": 382049213509426,
-					"parameters": {
-						"gamepad": "0",
-						"button": "button-y"
-					}
-				}
-			],
-			"actions": [
-				{
-					"callFunction": "allPlayersStoppedBattle",
-					"sid": 811867587673130
-				},
-				{
-					"callFunction": "allPlayersStoppedMoving",
-					"sid": 869175444374350
-				}
-			],
-			"sid": 884422434105854,
+			"eventType": "group",
+			"disabled": false,
+			"title": "OpenMenus",
+			"description": "",
+			"isActiveOnStart": true,
 			"children": [
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "compare-boolean-eventvar",
-							"objectClass": "System",
-							"sid": 762413498458977,
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 863196695442044,
 							"parameters": {
-								"variable": "ALL_PLAYERS_STOPPED_BATTLE"
+								"key": 27
 							}
 						},
 						{
-							"id": "compare-boolean-eventvar",
-							"objectClass": "System",
-							"sid": 613209624479038,
+							"id": "on-button-pressed",
+							"objectClass": "Gamepad",
+							"sid": 870412455834006,
 							"parameters": {
-								"variable": "ALL_PLAYERS_STOPPED_MOVING"
+								"gamepad": "0",
+								"button": "start-menu"
 							}
 						}
 					],
 					"actions": [
 						{
-							"id": "toggle-boolean-eventvar",
-							"objectClass": "System",
-							"sid": 256336837342390,
-							"parameters": {
-								"variable": "MENU_OPEN"
-							}
+							"callFunction": "allPlayersStoppedBattle",
+							"sid": 391488478176115
 						},
 						{
-							"callFunction": "displayMenu",
-							"sid": 619981330742792
-						},
-						{
-							"id": "set-group-active",
-							"objectClass": "System",
-							"sid": 837635553166179,
-							"parameters": {
-								"group-name": "\"PlayerControls\"",
-								"state": "toggle-active"
-							}
-						},
-						{
-							"id": "set-group-active",
-							"objectClass": "System",
-							"sid": 405497907343068,
-							"parameters": {
-								"group-name": "\"MenuControls\"",
-								"state": "toggle-active"
-							}
+							"callFunction": "allPlayersStoppedMoving",
+							"sid": 444597196315958
 						}
 					],
-					"sid": 529415726727223
+					"sid": 627767490776381,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 270258335222615,
+									"parameters": {
+										"variable": "ALL_PLAYERS_STOPPED_BATTLE"
+									}
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 149414722365584,
+									"parameters": {
+										"variable": "ALL_PLAYERS_STOPPED_MOVING"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 530004833899630,
+									"parameters": {
+										"group-name": "\"PlayerControls\"",
+										"state": "toggle-active"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 504949219339201,
+									"parameters": {
+										"group-name": "\"MenuControls\"",
+										"state": "toggle-active"
+									}
+								},
+								{
+									"id": "toggle-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 760175182307000,
+									"parameters": {
+										"variable": "MENU_CLASS_SELECT_OPEN"
+									}
+								},
+								{
+									"callFunction": "displayClassSelectMenu",
+									"sid": 163416701874793
+								}
+							],
+							"sid": 344158795157662
+						}
+					],
+					"isOrBlock": true
+				},
+				{
+					"eventType": "comment",
+					"text": "Opens or closes the Class Select Menu"
+				},
+				{
+					"functionName": "displayClassSelectMenu",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 679607480377185,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 819346769182656,
+									"parameters": {
+										"variable": "MENU_CLASS_SELECT_OPEN"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 514226820970777,
+									"parameters": {
+										"layer": "\"classSelect\"",
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 161264823867366
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 219738424154040
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 613729610819343,
+									"parameters": {
+										"layer": "\"classSelect\"",
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 840577042594614
+						}
+					]
 				}
 			],
-			"isOrBlock": true
-		},
-		{
-			"functionName": "displayMenu",
-			"functionDescription": "",
-			"functionCategory": "",
-			"functionReturnType": "none",
-			"functionIsAsync": false,
-			"functionParameters": [],
-			"eventType": "function-block",
-			"conditions": [],
-			"actions": [
-				{
-					"id": "set-visible",
-					"objectClass": "txtCharSelect",
-					"sid": 540909865373535,
-					"parameters": {
-						"visibility": "toggle"
-					}
-				}
-			],
-			"sid": 881712866207408,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "pick-by-comparison",
-							"objectClass": "System",
-							"sid": 116202243981476,
-							"parameters": {
-								"object": "arrow",
-								"expression": "arrow.id",
-								"comparison": 0,
-								"value": "\"leftArrow\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-visible",
-							"objectClass": "arrow",
-							"sid": 296770366808693,
-							"parameters": {
-								"visibility": "toggle"
-							}
-						}
-					],
-					"sid": 740537943242935
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "pick-by-comparison",
-							"objectClass": "System",
-							"sid": 888182135368023,
-							"parameters": {
-								"object": "arrow",
-								"expression": "arrow.id",
-								"comparison": 0,
-								"value": "\"rightArrow\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-visible",
-							"objectClass": "arrow",
-							"sid": 658985194942731,
-							"parameters": {
-								"visibility": "toggle"
-							}
-						}
-					],
-					"sid": 902207616643480
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "pick-by-comparison",
-							"objectClass": "System",
-							"sid": 517624998497497,
-							"parameters": {
-								"object": "class_select",
-								"expression": "class_select.id",
-								"comparison": 0,
-								"value": "\"hero1\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-visible",
-							"objectClass": "class_select",
-							"sid": 360231533785659,
-							"parameters": {
-								"visibility": "toggle"
-							}
-						}
-					],
-					"sid": 136769848705194
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "pick-by-comparison",
-							"objectClass": "System",
-							"sid": 232061121089211,
-							"parameters": {
-								"object": "class_select",
-								"expression": "class_select.id",
-								"comparison": 0,
-								"value": "\"hero2\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-visible",
-							"objectClass": "class_select",
-							"sid": 847058542632308,
-							"parameters": {
-								"visibility": "toggle"
-							}
-						}
-					],
-					"sid": 242222600903565
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "pick-by-comparison",
-							"objectClass": "System",
-							"sid": 480764273021374,
-							"parameters": {
-								"object": "frame",
-								"expression": "frame.id",
-								"comparison": 0,
-								"value": "\"hero_select\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-visible",
-							"objectClass": "frame",
-							"sid": 617991369262673,
-							"parameters": {
-								"visibility": "toggle"
-							}
-						}
-					],
-					"sid": 353662607596875
-				}
-			]
+			"sid": 287838317868446
 		},
 		{
 			"eventType": "group",

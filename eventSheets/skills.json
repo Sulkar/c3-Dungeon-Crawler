@@ -1,0 +1,316 @@
+{
+	"name": "Skills",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 484499930777989
+				}
+			],
+			"actions": [
+				{
+					"id": "map-function",
+					"objectClass": "Functions",
+					"sid": 911865077259134,
+					"parameters": {
+						"name": "\"skills\"",
+						"string": "\"Heal\"",
+						"function": "castHeal"
+					}
+				},
+				{
+					"id": "map-function",
+					"objectClass": "Functions",
+					"sid": 289716649867787,
+					"parameters": {
+						"name": "\"skills\"",
+						"string": "\"Fireball\"",
+						"function": "castFireball"
+					}
+				}
+			],
+			"sid": 716665919824849
+		},
+		{
+			"eventType": "comment",
+			"text": "Universal skill function"
+		},
+		{
+			"functionName": "castSkill",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "playerNr",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 637189350800550
+				},
+				{
+					"name": "skillName",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 773292394386343
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 963991299645788,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-comparison",
+							"objectClass": "System",
+							"sid": 271348239684799,
+							"parameters": {
+								"object": "Players",
+								"expression": "Players.playerNr",
+								"comparison": 0,
+								"value": "playerNr"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "call-mapped-function",
+							"objectClass": "Functions",
+							"sid": 530035558347792,
+							"parameters": {
+								"name": "\"skills\"",
+								"string": "skillName",
+								"forward-params": "0"
+							}
+						}
+					],
+					"sid": 723831108825221
+				}
+			]
+		},
+		{
+			"eventType": "comment",
+			"text": "Fireball Skill - only castable when player is in battle"
+		},
+		{
+			"functionName": "castFireball",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "playerNr",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 878271857251773
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 793729374468356,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-comparison",
+							"objectClass": "System",
+							"sid": 758303781288442,
+							"parameters": {
+								"object": "Players",
+								"expression": "Players.playerNr",
+								"comparison": 0,
+								"value": "playerNr"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Players",
+							"sid": 130370072175559,
+							"parameters": {
+								"instance-variable": "battle"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 441961846760854,
+							"parameters": {
+								"object-to-create": "Fireball",
+								"layer": "\"World\"",
+								"x": "Players.X",
+								"y": "Players.Y - 40",
+								"create-hierarchy": false
+							}
+						}
+					],
+					"sid": 812666262235947,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Enemies",
+									"sid": 900315088673855,
+									"parameters": {
+										"unique-id": "Players.lastTargetUID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 451278205447065,
+									"parameters": {
+										"seconds": "0.3"
+									}
+								},
+								{
+									"id": "tween-two-properties",
+									"objectClass": "Fireball",
+									"sid": 469212953933787,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"\"",
+										"property": "position",
+										"end-x": "Enemies.X",
+										"end-y": "Enemies.Y",
+										"time": "0.5",
+										"ease": "easeoutsine",
+										"destroy-on-complete": "yes",
+										"loop": "no",
+										"ping-pong": "no"
+									}
+								},
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "Enemies",
+									"sid": 956478677278060,
+									"parameters": {
+										"instance-variable": "currentHealth",
+										"value": "10"
+									}
+								}
+							],
+							"sid": 957988357141958
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "comment",
+			"text": "Heal skill"
+		},
+		{
+			"functionName": "castHeal",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "playerNr",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 773195556475621
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 908334272174776,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-comparison",
+							"objectClass": "System",
+							"sid": 806612660629830,
+							"parameters": {
+								"object": "Players",
+								"expression": "Players.playerNr",
+								"comparison": 0,
+								"value": "playerNr"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 821373570168475,
+							"parameters": {
+								"object-to-create": "Heal",
+								"layer": "\"World\"",
+								"x": "Players.X",
+								"y": "Players.Y - 40",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 502536963170465,
+							"parameters": {
+								"seconds": "0.3"
+							}
+						},
+						{
+							"id": "tween-two-properties",
+							"objectClass": "Heal",
+							"sid": 797759569460712,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "position",
+								"end-x": "Players.X",
+								"end-y": "Players.Y",
+								"time": "0.5",
+								"ease": "easeoutsine",
+								"destroy-on-complete": "yes",
+								"loop": "no",
+								"ping-pong": "no"
+							}
+						},
+						{
+							"id": "add-to-instvar",
+							"objectClass": "Players",
+							"sid": 741327460798066,
+							"parameters": {
+								"instance-variable": "currentHealth",
+								"value": "Self.currentHealth +2 <= Self.maxHealth ? 2 : Self.maxHealth - Self.currentHealth"
+							}
+						},
+						{
+							"callFunction": "updateHealthbar",
+							"sid": 273352942843590,
+							"parameters": [
+								"playerNr"
+							]
+						}
+					],
+					"sid": 787754765398295
+				}
+			]
+		}
+	],
+	"sid": 162090018487570
+}

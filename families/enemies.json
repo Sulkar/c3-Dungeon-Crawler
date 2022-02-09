@@ -26,6 +26,12 @@
 			"type": "string",
 			"desc": "",
 			"sid": 379629246451101
+		},
+		{
+			"name": "deathSound",
+			"type": "string",
+			"desc": "",
+			"sid": 146712720800675
 		}
 	],
 	"behaviorTypes": [
@@ -37,6 +43,7 @@
 	],
 	"effectTypes": [],
 	"members": [
-		"enemy_1"
+		"enemy_1",
+		"destructibles"
 	]
 }

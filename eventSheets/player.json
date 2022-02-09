@@ -24,6 +24,91 @@
 		{
 			"eventType": "group",
 			"disabled": false,
+			"title": "PlayerData",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 731374096652176
+						}
+					],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "Dictionary for player 1"
+						},
+						{
+							"id": "add-key",
+							"objectClass": "dctPlayer1",
+							"sid": 630132092053626,
+							"parameters": {
+								"key": "\"skill1\"",
+								"value": "\"Heal\""
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "dctPlayer1",
+							"sid": 372085545418492,
+							"parameters": {
+								"key": "\"skill2\"",
+								"value": "\"Fireball\""
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "dctPlayer1",
+							"sid": 154753224427125,
+							"parameters": {
+								"key": "\"skill3\"",
+								"value": "\"\""
+							}
+						},
+						{
+							"type": "comment",
+							"text": "Dictionary for player 2"
+						},
+						{
+							"id": "add-key",
+							"objectClass": "dctPlayer2",
+							"sid": 712684918629826,
+							"parameters": {
+								"key": "\"skill1\"",
+								"value": "\"Fireball\""
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "dctPlayer2",
+							"sid": 804546727569642,
+							"parameters": {
+								"key": "\"skill2\"",
+								"value": "\"\""
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "dctPlayer2",
+							"sid": 659885605437395,
+							"parameters": {
+								"key": "\"skill3\"",
+								"value": "\"\""
+							}
+						}
+					],
+					"sid": 778060113871319
+				}
+			],
+			"sid": 415250998327699
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
 			"title": "PlayerControls",
 			"description": "",
 			"isActiveOnStart": true,
@@ -71,51 +156,33 @@
 										"y": "Players.Y",
 										"create-hierarchy": false
 									}
+								},
+								{
+									"id": "add-child",
+									"objectClass": "Players",
+									"sid": 405928569549067,
+									"parameters": {
+										"child": "classKnight",
+										"transform-x": true,
+										"transform-y": true,
+										"transform-w": true,
+										"transform-h": true,
+										"transform-a": true,
+										"transform-z-elevation": true,
+										"destroy-with-parent": true
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Players",
+									"sid": 379825832063034,
+									"parameters": {
+										"instance-variable": "classUID",
+										"value": "classKnight.UID"
+									}
 								}
 							],
-							"sid": 515134255854249,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "pick-last-created",
-											"objectClass": "System",
-											"sid": 234280134259692,
-											"parameters": {
-												"object": "PlayerClasses"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "pin-to-object-properties",
-											"objectClass": "PlayerClasses",
-											"sid": 946101865342634,
-											"behaviorType": "Pin",
-											"parameters": {
-												"pin-to": "Players",
-												"x": true,
-												"y": true,
-												"angle": true,
-												"width-type": "scale",
-												"height-type": "scale",
-												"z": true
-											}
-										},
-										{
-											"id": "set-instvar-value",
-											"objectClass": "Players",
-											"sid": 946225483301706,
-											"parameters": {
-												"instance-variable": "classUID",
-												"value": "PlayerClasses.UID"
-											}
-										}
-									],
-									"sid": 163271925729529
-								}
-							]
+							"sid": 515134255854249
 						},
 						{
 							"eventType": "comment",
@@ -325,6 +392,54 @@
 									"isOrBlock": true
 								}
 							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 712482243498770,
+									"parameters": {
+										"key": 49
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "castSkill",
+									"sid": 583777374175050,
+									"parameters": [
+										"1",
+										"dctPlayer1.Get(\"skill1\")"
+									]
+								}
+							],
+							"sid": 972562983157255
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 193797766804271,
+									"parameters": {
+										"key": 50
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "castSkill",
+									"sid": 899010611054651,
+									"parameters": [
+										"1",
+										"dctPlayer1.Get(\"skill2\")"
+									]
+								}
+							],
+							"sid": 889559259625241
 						}
 					],
 					"sid": 295665878324510
@@ -670,6 +785,56 @@
 									"isOrBlock": true
 								}
 							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-button-pressed",
+									"objectClass": "Gamepad",
+									"sid": 176809208449735,
+									"parameters": {
+										"gamepad": "0",
+										"button": "button-x"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "castSkill",
+									"sid": 600243095980717,
+									"parameters": [
+										"2",
+										"dctPlayer1.Get(\"skill1\")"
+									]
+								}
+							],
+							"sid": 712555666459982
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-button-pressed",
+									"objectClass": "Gamepad",
+									"sid": 847909386846414,
+									"parameters": {
+										"gamepad": "0",
+										"button": "button-y"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "castSkill",
+									"sid": 219153085821488,
+									"parameters": [
+										"2",
+										"dctPlayer1.Get(\"skill2\")"
+									]
+								}
+							],
+							"sid": 493559339543463
 						}
 					],
 					"sid": 416851242922019
@@ -779,17 +944,6 @@
 													"id": "else",
 													"objectClass": "System",
 													"sid": 408460947101614
-												},
-												{
-													"id": "is-overlapping-at-offset",
-													"objectClass": "Players",
-													"sid": 582798163226189,
-													"parameters": {
-														"object": "PlayerCollision",
-														"offset-x": "round(cos(Players.angleOfMotion)*(TILESIZE-10))",
-														"offset-y": "round(sin(Players.angleOfMotion)*(TILESIZE-10))"
-													},
-													"isInverted": true
 												}
 											],
 											"actions": [
@@ -858,6 +1012,14 @@
 						},
 						{
 							"id": "pick-by-unique-id",
+							"objectClass": "PlayerClasses",
+							"sid": 524542267621422,
+							"parameters": {
+								"unique-id": "Players.classUID"
+							}
+						},
+						{
+							"id": "pick-by-unique-id",
 							"objectClass": "Enemies",
 							"sid": 665494681195828,
 							"parameters": {
@@ -873,6 +1035,35 @@
 							"parameters": {
 								"instance-variable": "battle",
 								"value": "true"
+							}
+						},
+						{
+							"callFunction": "zOrderBattle",
+							"sid": 112572504890833,
+							"parameters": [
+								"Players.classUID",
+								"Players.lastTargetUID"
+							]
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "PlayerClasses",
+							"sid": 587927933784764,
+							"parameters": {
+								"animation": "\"attack\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "play-by-name",
+							"objectClass": "Audio",
+							"sid": 128718628441435,
+							"parameters": {
+								"folder": "sounds",
+								"audio-file-name": "PlayerClasses.attackSound",
+								"loop": "not-looping",
+								"volume": "0",
+								"tag-optional": "\"\""
 							}
 						},
 						{
@@ -938,46 +1129,7 @@
 							}
 						}
 					],
-					"sid": 353556452117754,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "pick-by-unique-id",
-									"objectClass": "PlayerClasses",
-									"sid": 898619839645922,
-									"parameters": {
-										"unique-id": "Players.classUID"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-animation",
-									"objectClass": "PlayerClasses",
-									"sid": 443245195179430,
-									"parameters": {
-										"animation": "\"attack\"",
-										"from": "beginning"
-									}
-								},
-								{
-									"id": "play-by-name",
-									"objectClass": "Audio",
-									"sid": 787765266319233,
-									"parameters": {
-										"folder": "sounds",
-										"audio-file-name": "PlayerClasses.attackSound",
-										"loop": "not-looping",
-										"volume": "0",
-										"tag-optional": "\"\""
-									}
-								}
-							],
-							"sid": 625258365751408
-						}
-					]
+					"sid": 353556452117754
 				},
 				{
 					"eventType": "comment",

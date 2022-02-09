@@ -89,11 +89,19 @@
 								{
 									"id": "set-instvar-value",
 									"objectClass": "Enemies",
-									"sid": 952253114933132,
+									"sid": 444742221750686,
 									"parameters": {
 										"instance-variable": "currentTargetUID",
 										"value": "Players.UID"
 									}
+								},
+								{
+									"callFunction": "zOrderBattle",
+									"sid": 743397829483027,
+									"parameters": [
+										"Players.lastTargetUID",
+										"Players.classUID"
+									]
 								},
 								{
 									"id": "set-animation",

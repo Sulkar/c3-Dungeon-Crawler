@@ -8,6 +8,12 @@
 			"type": "number",
 			"desc": "",
 			"sid": 576928829232377
+		},
+		{
+			"name": "ignore",
+			"type": "boolean",
+			"desc": "",
+			"sid": 467533296908294
 		}
 	],
 	"behaviorTypes": [
@@ -27,6 +33,7 @@
 		"enemy_1",
 		"coin",
 		"classKnight",
-		"classMage"
+		"classMage",
+		"destructibles"
 	]
 }
