@@ -280,18 +280,11 @@
 					"functionIsAsync": false,
 					"functionParameters": [
 						{
-							"name": "attackerUID",
+							"name": "UID",
 							"type": "number",
 							"initialValue": "0",
 							"comment": "",
 							"sid": 504706102341510
-						},
-						{
-							"name": "defenderUID",
-							"type": "number",
-							"initialValue": "0",
-							"comment": "",
-							"sid": 935348322004389
 						}
 					],
 					"eventType": "function-block",
@@ -307,7 +300,7 @@
 									"objectClass": "ZOrder",
 									"sid": 483949396367991,
 									"parameters": {
-										"unique-id": "attackerUID"
+										"unique-id": "UID"
 									}
 								}
 							],
@@ -323,31 +316,6 @@
 								}
 							],
 							"sid": 493975438249807
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "pick-by-unique-id",
-									"objectClass": "ZOrder",
-									"sid": 270557829077821,
-									"parameters": {
-										"unique-id": "defenderUID"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-boolean-instvar",
-									"objectClass": "ZOrder",
-									"sid": 686557467402303,
-									"parameters": {
-										"instance-variable": "ignore",
-										"value": "false"
-									}
-								}
-							],
-							"sid": 599581385849219
 						}
 					]
 				}
@@ -790,6 +758,13 @@
 													"id": "destroy",
 													"objectClass": "Enemies",
 													"sid": 103263388870118
+												},
+												{
+													"callFunction": "zOrderReset",
+													"sid": 357704059436163,
+													"parameters": [
+														"Players.classUID"
+													]
 												}
 											],
 											"sid": 780616333363066
