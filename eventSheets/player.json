@@ -156,33 +156,51 @@
 										"y": "Players.Y",
 										"create-hierarchy": false
 									}
-								},
-								{
-									"id": "add-child",
-									"objectClass": "Players",
-									"sid": 405928569549067,
-									"parameters": {
-										"child": "classKnight",
-										"transform-x": true,
-										"transform-y": true,
-										"transform-w": true,
-										"transform-h": true,
-										"transform-a": true,
-										"transform-z-elevation": true,
-										"destroy-with-parent": true
-									}
-								},
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Players",
-									"sid": 379825832063034,
-									"parameters": {
-										"instance-variable": "classUID",
-										"value": "classKnight.UID"
-									}
 								}
 							],
-							"sid": 515134255854249
+							"sid": 515134255854249,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-last-created",
+											"objectClass": "System",
+											"sid": 996545803108336,
+											"parameters": {
+												"object": "PlayerClasses"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-child",
+											"objectClass": "Players",
+											"sid": 685705749205327,
+											"parameters": {
+												"child": "PlayerClasses",
+												"transform-x": true,
+												"transform-y": true,
+												"transform-w": true,
+												"transform-h": true,
+												"transform-a": true,
+												"transform-z-elevation": true,
+												"destroy-with-parent": true
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Players",
+											"sid": 830252479388576,
+											"parameters": {
+												"instance-variable": "classUID",
+												"value": "PlayerClasses.UID"
+											}
+										}
+									],
+									"sid": 704996072264990
+								}
+							]
 						},
 						{
 							"eventType": "comment",
@@ -505,18 +523,18 @@
 									],
 									"actions": [
 										{
-											"id": "pin-to-object-properties",
-											"objectClass": "PlayerClasses",
-											"sid": 232885511799772,
-											"behaviorType": "Pin",
+											"id": "add-child",
+											"objectClass": "Players",
+											"sid": 731689241099172,
 											"parameters": {
-												"pin-to": "Players",
-												"x": true,
-												"y": true,
-												"angle": true,
-												"width-type": "scale",
-												"height-type": "scale",
-												"z": true
+												"child": "PlayerClasses",
+												"transform-x": true,
+												"transform-y": true,
+												"transform-w": true,
+												"transform-h": true,
+												"transform-a": true,
+												"transform-z-elevation": true,
+												"destroy-with-parent": true
 											}
 										},
 										{

@@ -673,24 +673,24 @@
 															"conditions": [],
 															"actions": [
 																{
-																	"id": "pin-to-object-properties",
-																	"objectClass": "PlayerClasses",
-																	"sid": 499808542501974,
-																	"behaviorType": "Pin",
+																	"id": "add-child",
+																	"objectClass": "Players",
+																	"sid": 889624437320103,
 																	"parameters": {
-																		"pin-to": "Players",
-																		"x": true,
-																		"y": true,
-																		"angle": true,
-																		"width-type": "scale",
-																		"height-type": "scale",
-																		"z": true
+																		"child": "PlayerClasses",
+																		"transform-x": true,
+																		"transform-y": true,
+																		"transform-w": true,
+																		"transform-h": true,
+																		"transform-a": true,
+																		"transform-z-elevation": true,
+																		"destroy-with-parent": true
 																	}
 																},
 																{
 																	"id": "set-instvar-value",
 																	"objectClass": "Players",
-																	"sid": 556572535709091,
+																	"sid": 331542342951120,
 																	"parameters": {
 																		"instance-variable": "classUID",
 																		"value": "PlayerClasses.UID"

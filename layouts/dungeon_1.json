@@ -75,11 +75,6 @@
 							"properties": {
 								"enabled": true
 							}
-						},
-						"Pin": {
-							"properties": {
-								"destroy": true
-							}
 						}
 					},
 					"effects": {
@@ -487,11 +482,6 @@
 						"Tween": {
 							"properties": {
 								"enabled": true
-							}
-						},
-						"Pin": {
-							"properties": {
-								"destroy": true
 							}
 						}
 					},

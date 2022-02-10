@@ -16,13 +16,7 @@
 			"sid": 760441906777873
 		}
 	],
-	"behaviorTypes": [
-		{
-			"behaviorId": "Pin",
-			"name": "Pin",
-			"sid": 793988992891474
-		}
-	],
+	"behaviorTypes": [],
 	"effectTypes": [],
 	"members": [
 		"classKnight",
