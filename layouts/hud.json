@@ -812,7 +812,7 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 166.25150196515085,
+						"x": 167.25150196515085,
 						"y": 233.94390977985697,
 						"width": 131.33007946510622,
 						"height": 30,
@@ -869,7 +869,7 @@
 					}
 				},
 				{
-					"type": "Sprite",
+					"type": "ui_Items",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Animation 1",
@@ -881,11 +881,98 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 256,
-						"y": -80,
-						"width": 250,
-						"height": 250,
+						"x": 325.6605966932367,
+						"y": 123.69737339027056,
+						"width": 17.778499555634923,
+						"height": 17.778499555634923,
+						"originX": 0.4666666666666667,
+						"originY": 0.5333333333333333,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "ui_Items",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 1,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 54,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 327.877904126598,
+						"y": 198.33742656536643,
+						"width": 13.549260733268415,
+						"height": 18.47626463627511,
 						"originX": 0.5,
+						"originY": 0.5333333333333333,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "ui_Items",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 2,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 55,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 328.0960683937368,
+						"y": 148.71305277768946,
+						"width": 18.47626463627511,
+						"height": 14.781011709020088,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "ui_Items",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 3,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 56,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 328.37641994854613,
+						"y": 171.75086055451774,
+						"width": 14.781011709020088,
+						"height": 18.47626463627511,
+						"originX": 0.5416666666666666,
 						"originY": 0.5,
 						"color": [
 							1,

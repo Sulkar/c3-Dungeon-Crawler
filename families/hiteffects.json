@@ -1,0 +1,18 @@
+{
+	"name": "HitEffects",
+	"plugin-id": "Sprite",
+	"sid": 572237957838909,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 470723019706462
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"effect_wand_hit",
+		"effect_sword_slash"
+	]
+}

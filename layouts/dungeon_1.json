@@ -68,7 +68,8 @@
 						"zOrder": 0,
 						"ignore": false,
 						"attackSound": "attack1",
-						"class": "knight"
+						"class": "knight",
+						"attackEffect": "effect_sword_slash"
 					},
 					"behaviors": {
 						"Tween": {
@@ -476,7 +477,8 @@
 						"zOrder": 0,
 						"ignore": false,
 						"attackSound": "attack1",
-						"class": "mage"
+						"class": "mage",
+						"attackEffect": ""
 					},
 					"behaviors": {
 						"Tween": {
@@ -533,7 +535,8 @@
 						"currentHealth": 20,
 						"money": 0,
 						"classUID": 0,
-						"direction": ""
+						"direction": "",
+						"weapon": "wp_hammer"
 					},
 					"behaviors": {
 						"TileMovement": {
@@ -595,7 +598,8 @@
 						"currentHealth": 20,
 						"money": 0,
 						"classUID": 0,
-						"direction": ""
+						"direction": "",
+						"weapon": "wp_sword"
 					},
 					"behaviors": {
 						"TileMovement": {
@@ -984,6 +988,118 @@
 						"height": 64,
 						"originX": 0.5,
 						"originY": 0.625,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "classWizard",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "idle",
+						"initial-frame": 0,
+						"enable-collisions": false,
+						"live-preview": false
+					},
+					"uid": 57,
+					"instanceVariables": {
+						"zOrder": 0,
+						"ignore": false,
+						"attackSound": "attack1",
+						"class": "wizard",
+						"attackEffect": "effect_wand_hit"
+					},
+					"behaviors": {
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"effects": {
+						"AdjustHSL": {
+							"parameters": {
+								"hue": 0,
+								"saturation": 1,
+								"luminosity": 1
+							}
+						}
+					},
+					"world": {
+						"x": 288,
+						"y": -32,
+						"width": 48,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.625,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "wp_sword",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "swing",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 58,
+					"instanceVariables": {
+						"hitEffect": "effect_sword_slash"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 337.5908066254732,
+						"y": -42.034475154475565,
+						"width": 11.181613250946366,
+						"height": 29.351734783734212,
+						"originX": 0.5,
+						"originY": 0.7142857142857143,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "wp_hammer",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "swing",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 59,
+					"instanceVariables": {
+						"hitEffect": "effect_wand_hit"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 359.05717926341015,
+						"y": -52.6752714330157,
+						"width": 12.13412151457582,
+						"height": 44.896249603930535,
+						"originX": 0.5,
+						"originY": 0.6756756756756757,
 						"color": [
 							1,
 							1,

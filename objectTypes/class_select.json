@@ -72,6 +72,18 @@
 						},
 						"useCollisionPoly": true,
 						"duration": 1
+					},
+					{
+						"width": 24,
+						"height": 32,
+						"originX": 0.5,
+						"originY": 0.625,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 555504,
+						"useCollisionPoly": true,
+						"duration": 1
 					}
 				],
 				"sid": 823072121587709,

@@ -74,6 +74,12 @@
 			"type": "string",
 			"desc": "",
 			"sid": 893418657904026
+		},
+		{
+			"name": "weapon",
+			"type": "string",
+			"desc": "",
+			"sid": 334534215875555
 		}
 	],
 	"behaviorTypes": [

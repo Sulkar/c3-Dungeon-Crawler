@@ -14,12 +14,19 @@
 			"type": "string",
 			"desc": "",
 			"sid": 760441906777873
+		},
+		{
+			"name": "attackEffect",
+			"type": "string",
+			"desc": "",
+			"sid": 165443079390695
 		}
 	],
 	"behaviorTypes": [],
 	"effectTypes": [],
 	"members": [
 		"classKnight",
-		"classMage"
+		"classMage",
+		"classWizard"
 	]
 }

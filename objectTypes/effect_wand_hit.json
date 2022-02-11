@@ -1,7 +1,7 @@
 {
-	"name": "effect_sword_slash",
+	"name": "effect_wand_hit",
 	"plugin-id": "Sprite",
-	"sid": 839326086750516,
+	"sid": 842604711170067,
 	"isGlobal": false,
 	"instanceVariables": [],
 	"behaviorTypes": [],
@@ -11,14 +11,26 @@
 			{
 				"frames": [
 					{
-						"width": 32,
-						"height": 8,
+						"width": 16,
+						"height": 16,
 						"originX": 0.5,
 						"originY": 0.5,
 						"originalSource": "",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 3675135,
+						"imageSpriteId": 9040356,
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 7624627,
 						"collisionPoly": {
 							"points": [
 								0.0625,
@@ -43,14 +55,46 @@
 						"duration": 1
 					},
 					{
-						"width": 32,
-						"height": 8,
+						"width": 16,
+						"height": 16,
 						"originX": 0.5,
 						"originY": 0.5,
 						"originalSource": "",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 809923,
+						"imageSpriteId": 5666302,
+						"collisionPoly": {
+							"points": [
+								0.0625,
+								0.25,
+								0.5,
+								0,
+								0.90625,
+								0.25,
+								0.96875,
+								0.5,
+								0.90625,
+								0.625,
+								0.5,
+								0.875,
+								0.0625,
+								0.625,
+								0,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 3400761,
 						"collisionPoly": {
 							"points": [
 								0.0625,
@@ -75,13 +119,13 @@
 						"duration": 1
 					}
 				],
-				"sid": 417101781081327,
+				"sid": 731159526549065,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,
 				"repeatCount": 1,
 				"repeatTo": 0,
-				"speed": 5
+				"speed": 10
 			}
 		],
 		"subfolders": []

@@ -1,0 +1,19 @@
+{
+	"name": "Weapons",
+	"plugin-id": "Sprite",
+	"sid": 722037449131286,
+	"instanceVariables": [
+		{
+			"name": "hitEffect",
+			"type": "string",
+			"desc": "",
+			"sid": 633153645277433
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"wp_sword",
+		"wp_hammer"
+	]
+}

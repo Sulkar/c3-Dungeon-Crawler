@@ -148,9 +148,9 @@
 								{
 									"id": "create-object-by-name",
 									"objectClass": "System",
-									"sid": 503965380909205,
+									"sid": 626230032261768,
 									"parameters": {
-										"object-name": "\"classKnight\"",
+										"object-name": "\"classWizard\"",
 										"layer": "\"World\"",
 										"x": "Players.X",
 										"y": "Players.Y",
@@ -1085,38 +1085,15 @@
 							}
 						},
 						{
-							"id": "spawn-another-object",
-							"objectClass": "Enemies",
-							"sid": 838080013176020,
+							"id": "create-object-by-name",
+							"objectClass": "System",
+							"sid": 197795024677428,
 							"parameters": {
-								"object": "effect_sword_slash",
+								"object-name": "Players.weapon",
 								"layer": "\"World\"",
-								"image-point": "0",
+								"x": "Players.X + PlayerClasses.Width /4",
+								"y": "Players.y ",
 								"create-hierarchy": false
-							}
-						},
-						{
-							"id": "tween-one-property",
-							"objectClass": "effect_sword_slash",
-							"sid": 733987324185942,
-							"behaviorType": "Tween",
-							"parameters": {
-								"tags": "\"FadeOut\"",
-								"property": "offsetHeight",
-								"end-value": "0",
-								"time": "0.25",
-								"ease": "default",
-								"destroy-on-complete": "yes",
-								"loop": "no",
-								"ping-pong": "no"
-							}
-						},
-						{
-							"id": "set-angle",
-							"objectClass": "effect_sword_slash",
-							"sid": 313786258885891,
-							"parameters": {
-								"angle": "random(-30, 30)"
 							}
 						},
 						{
@@ -1147,7 +1124,90 @@
 							}
 						}
 					],
-					"sid": 353556452117754
+					"sid": 353556452117754,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-last-created",
+									"objectClass": "System",
+									"sid": 440956452593569,
+									"parameters": {
+										"object": "Weapons"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object-by-name",
+									"objectClass": "System",
+									"sid": 310859991431632,
+									"parameters": {
+										"object-name": "Weapons.hitEffect",
+										"layer": "\"World\"",
+										"x": "Enemies.X",
+										"y": "Enemies.Y",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "set-width",
+									"objectClass": "Weapons",
+									"sid": 690839938735584,
+									"parameters": {
+										"width": "Players.direction = \"right\" ? Self.Width : Self.Width*-1 "
+									}
+								},
+								{
+									"id": "move-to-top",
+									"objectClass": "Weapons",
+									"sid": 847521246642689
+								}
+							],
+							"sid": 904871463795072
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-last-created",
+									"objectClass": "System",
+									"sid": 969800699570457,
+									"parameters": {
+										"object": "HitEffects"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "tween-one-property",
+									"objectClass": "HitEffects",
+									"sid": 523949122822444,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"FadeOut\"",
+										"property": "offsetHeight",
+										"end-value": "0",
+										"time": "Players.animationCooldown*0.8",
+										"ease": "default",
+										"destroy-on-complete": "yes",
+										"loop": "no",
+										"ping-pong": "no"
+									}
+								},
+								{
+									"id": "set-angle",
+									"objectClass": "HitEffects",
+									"sid": 783108627116954,
+									"parameters": {
+										"angle": "random(-30,30)"
+									}
+								}
+							],
+							"sid": 492975962391955
+						}
+					]
 				},
 				{
 					"eventType": "comment",
@@ -1313,6 +1373,27 @@
 						}
 					],
 					"sid": 781310117608997
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-animation-finished",
+							"objectClass": "Weapons",
+							"sid": 139281150074587,
+							"parameters": {
+								"animation": "\"swing\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Weapons",
+							"sid": 396422046923718
+						}
+					],
+					"sid": 549680348360064
 				}
 			],
 			"sid": 272208295717401

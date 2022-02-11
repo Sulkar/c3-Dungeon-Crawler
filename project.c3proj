@@ -141,11 +141,22 @@
 					"classKnight",
 					"classMage",
 					"player_base",
-					"effect_sword_slash",
 					"dctPlayer1",
-					"dctPlayer2"
+					"dctPlayer2",
+					"classWizard"
 				],
-				"subfolders": [],
+				"subfolders": [
+					{
+						"items": [
+							"wp_hammer",
+							"wp_sword",
+							"effect_sword_slash",
+							"effect_wand_hit"
+						],
+						"subfolders": [],
+						"name": "weapons"
+					}
+				],
 				"name": "Players"
 			},
 			{
@@ -166,7 +177,8 @@
 					"frame",
 					"class_select",
 					"arrow",
-					"txtCharSelect"
+					"txtCharSelect",
+					"ui_Items"
 				],
 				"subfolders": [],
 				"name": "HUD"
@@ -212,7 +224,9 @@
 			"PlayerCollision",
 			"PlayerClasses",
 			"Items",
-			"Skills"
+			"Skills",
+			"HitEffects",
+			"Weapons"
 		],
 		"subfolders": []
 	},

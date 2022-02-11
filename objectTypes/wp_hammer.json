@@ -1,0 +1,61 @@
+{
+	"name": "wp_hammer",
+	"plugin-id": "Sprite",
+	"sid": 966090356412787,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 10,
+						"height": 37,
+						"originX": 0.5,
+						"originY": 0.6756756756756757,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 161207,
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 37,
+						"height": 10,
+						"originX": 0.2972972972972973,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 3399068,
+						"collisionPoly": {
+							"points": [
+								1,
+								0,
+								1,
+								1,
+								0,
+								1,
+								0,
+								0
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 836278480709098,
+				"name": "swing",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

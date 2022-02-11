@@ -2,6 +2,7 @@
     "c2dictionary": true,
     "data": {
         "0": "classKnight",
-        "1": "classMage"
+        "1": "classMage",
+        "2": "classWizard"
     }
 }
