@@ -36,6 +36,16 @@
 					"sid": 781613707540206
 				},
 				{
+					"callFunction": "displayCombatText",
+					"sid": 927504660352996,
+					"parameters": [
+						"coin.X",
+						"coin.Y - coin.Height/2",
+						"coin.value",
+						"\"coin\""
+					]
+				},
+				{
 					"callFunction": "addMoney",
 					"sid": 572951726907545,
 					"parameters": [

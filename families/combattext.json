@@ -1,0 +1,24 @@
+{
+	"name": "CombatText",
+	"plugin-id": "Spritefont2",
+	"sid": 532847726474061,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Bullet",
+			"name": "Bullet",
+			"sid": 367036005488099
+		},
+		{
+			"behaviorId": "Fade",
+			"name": "Fade",
+			"sid": 575388383094105
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"healText",
+		"dmgText",
+		"coinText"
+	]
+}

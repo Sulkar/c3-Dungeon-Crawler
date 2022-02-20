@@ -153,6 +153,7 @@
 						"currentTargetUID": 0,
 						"attackSound": "attack2",
 						"deathSound": "",
+						"atk": 9,
 						"zOrder": 0,
 						"ignore": false
 					},
@@ -218,6 +219,7 @@
 						"currentTargetUID": 0,
 						"attackSound": "attack2",
 						"deathSound": "",
+						"atk": 9,
 						"zOrder": 0,
 						"ignore": false
 					},
@@ -531,12 +533,13 @@
 						"lastTargetUID": 0,
 						"playerNr": 1,
 						"battle": false,
-						"maxHealth": 20,
-						"currentHealth": 20,
+						"maxHealth": 100,
+						"currentHealth": 100,
 						"money": 0,
 						"classUID": 0,
 						"direction": "",
-						"weapon": "wp_hammer"
+						"weapon": "wp_hammer",
+						"atk": 10
 					},
 					"behaviors": {
 						"TileMovement": {
@@ -594,12 +597,13 @@
 						"lastTargetUID": 0,
 						"playerNr": 2,
 						"battle": false,
-						"maxHealth": 20,
-						"currentHealth": 20,
+						"maxHealth": 100,
+						"currentHealth": 100,
 						"money": 0,
 						"classUID": 0,
 						"direction": "",
-						"weapon": "wp_sword"
+						"weapon": "wp_sword",
+						"atk": 10
 					},
 					"behaviors": {
 						"TileMovement": {
@@ -655,6 +659,7 @@
 						"currentTargetUID": 0,
 						"attackSound": "",
 						"deathSound": "destructible_destroy",
+						"atk": 9,
 						"zOrder": 0,
 						"ignore": false
 					},
@@ -720,6 +725,7 @@
 						"currentTargetUID": 0,
 						"attackSound": "",
 						"deathSound": "destructible_destroy",
+						"atk": 9,
 						"zOrder": 0,
 						"ignore": false
 					},
@@ -785,6 +791,7 @@
 						"currentTargetUID": 0,
 						"attackSound": "",
 						"deathSound": "destructible_destroy",
+						"atk": 9,
 						"zOrder": 0,
 						"ignore": false
 					},
@@ -949,6 +956,7 @@
 						"currentTargetUID": 0,
 						"attackSound": "attack2",
 						"deathSound": "",
+						"atk": 9,
 						"zOrder": 0,
 						"ignore": false
 					},
@@ -1104,6 +1112,186 @@
 							1,
 							1,
 							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "dmgText",
+					"properties": {
+						"text": "9",
+						"enable-bbcode": true,
+						"character-width": 16,
+						"character-height": 16,
+						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>",
+						"spacing-data": "",
+						"scale": 0.7,
+						"character-spacing": 0,
+						"line-height": 0,
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "center"
+					},
+					"uid": 60,
+					"instanceVariables": {},
+					"behaviors": {
+						"Bullet": {
+							"properties": {
+								"speed": 50,
+								"acceleration": 0,
+								"gravity": 0,
+								"bounce-off-solids": false,
+								"set-angle": false,
+								"step": false,
+								"enabled": true
+							}
+						},
+						"Fade": {
+							"properties": {
+								"fade-in-time": 0,
+								"wait-time": 0,
+								"fade-out-time": 1.5,
+								"destroy": true,
+								"enabled": true,
+								"live-preview": false
+							}
+						}
+					},
+					"world": {
+						"x": 404.3795443047906,
+						"y": -14.756455608277655,
+						"width": 43.29469874613284,
+						"height": 12.536855126801271,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							0.9686274509803922,
+							0.9686274509803922,
+							0.9686274509803922,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "healText",
+					"properties": {
+						"text": "9",
+						"enable-bbcode": true,
+						"character-width": 16,
+						"character-height": 16,
+						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>",
+						"spacing-data": "",
+						"scale": 0.7,
+						"character-spacing": 0,
+						"line-height": 0,
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "center"
+					},
+					"uid": 61,
+					"instanceVariables": {},
+					"behaviors": {
+						"Bullet": {
+							"properties": {
+								"speed": 50,
+								"acceleration": 0,
+								"gravity": 0,
+								"bounce-off-solids": false,
+								"set-angle": false,
+								"step": false,
+								"enabled": true
+							}
+						},
+						"Fade": {
+							"properties": {
+								"fade-in-time": 0,
+								"wait-time": 0,
+								"fade-out-time": 1.5,
+								"destroy": true,
+								"enabled": true,
+								"live-preview": false
+							}
+						}
+					},
+					"world": {
+						"x": 404.37964631555684,
+						"y": -44.724909321765324,
+						"width": 43.29469874613284,
+						"height": 12.536855126801271,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							0.9686274509803922,
+							0.9686274509803922,
+							0.9686274509803922,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "coinText",
+					"properties": {
+						"text": "9",
+						"enable-bbcode": true,
+						"character-width": 16,
+						"character-height": 16,
+						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#\"'&()[]|`\\/@°+=*$£€<>",
+						"spacing-data": "",
+						"scale": 0.7,
+						"character-spacing": 0,
+						"line-height": 0,
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "center"
+					},
+					"uid": 62,
+					"instanceVariables": {},
+					"behaviors": {
+						"Bullet": {
+							"properties": {
+								"speed": 50,
+								"acceleration": 0,
+								"gravity": 0,
+								"bounce-off-solids": false,
+								"set-angle": false,
+								"step": false,
+								"enabled": true
+							}
+						},
+						"Fade": {
+							"properties": {
+								"fade-in-time": 0,
+								"wait-time": 0,
+								"fade-out-time": 1.5,
+								"destroy": true,
+								"enabled": true,
+								"live-preview": false
+							}
+						}
+					},
+					"world": {
+						"x": 449.9480822838645,
+						"y": -36.10385879511273,
+						"width": 43.29469874613284,
+						"height": 12.536855126801271,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							0.9686274509803922,
+							0.9686274509803922,
+							0.9686274509803922,
 							1
 						],
 						"angle": 0,

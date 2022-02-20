@@ -205,6 +205,24 @@
 										"instance-variable": "currentHealth",
 										"value": "10"
 									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 748459071803771,
+									"parameters": {
+										"seconds": "0.5"
+									}
+								},
+								{
+									"callFunction": "displayCombatText",
+									"sid": 456561842185216,
+									"parameters": [
+										"Enemies.X",
+										"Enemies.Y - Enemies.Height/2",
+										"10",
+										"\"damage\""
+									]
 								}
 							],
 							"sid": 957988357141958
@@ -298,6 +316,16 @@
 								"instance-variable": "currentHealth",
 								"value": "Self.currentHealth +2 <= Self.maxHealth ? 2 : Self.maxHealth - Self.currentHealth"
 							}
+						},
+						{
+							"callFunction": "displayCombatText",
+							"sid": 626330849050562,
+							"parameters": [
+								"Players.X",
+								"Players.Y - Players.Height/2",
+								"10",
+								"\"heal\""
+							]
 						},
 						{
 							"callFunction": "updateHealthbar",

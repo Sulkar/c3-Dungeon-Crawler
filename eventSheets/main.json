@@ -800,6 +800,194 @@
 							]
 						}
 					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Displays red, green, ... combat text numbers above the target."
+				},
+				{
+					"functionName": "displayCombatText",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "spawnX",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 508032404449608
+						},
+						{
+							"name": "spawnY",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 227908420441405
+						},
+						{
+							"name": "value",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 539376691634568
+						},
+						{
+							"name": "type",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 865037220014915
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 192135724337451,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 831505057461169,
+									"parameters": {
+										"variable": "type",
+										"comparison": 0,
+										"value": "\"damage\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 542462743594152,
+									"parameters": {
+										"object-to-create": "dmgText",
+										"layer": "\"World\"",
+										"x": "spawnX",
+										"y": "spawnY",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "set-angle-of-motion",
+									"objectClass": "dmgText",
+									"sid": 411821992494944,
+									"behaviorType": "Bullet",
+									"parameters": {
+										"angle": "-90"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "dmgText",
+									"sid": 522595906567858,
+									"parameters": {
+										"text": "value"
+									}
+								}
+							],
+							"sid": 597840373961567
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 825334100494308,
+									"parameters": {
+										"variable": "type",
+										"comparison": 0,
+										"value": "\"heal\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 139517095668175,
+									"parameters": {
+										"object-to-create": "healText",
+										"layer": "\"World\"",
+										"x": "spawnX",
+										"y": "spawnY",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "set-angle-of-motion",
+									"objectClass": "healText",
+									"sid": 208065753530441,
+									"behaviorType": "Bullet",
+									"parameters": {
+										"angle": "-90"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "healText",
+									"sid": 800857400454701,
+									"parameters": {
+										"text": "value"
+									}
+								}
+							],
+							"sid": 461250488235641
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 283453609989085,
+									"parameters": {
+										"variable": "type",
+										"comparison": 0,
+										"value": "\"coin\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 330392941251331,
+									"parameters": {
+										"object-to-create": "coinText",
+										"layer": "\"World\"",
+										"x": "spawnX",
+										"y": "spawnY",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "set-angle-of-motion",
+									"objectClass": "coinText",
+									"sid": 535286471367889,
+									"behaviorType": "Bullet",
+									"parameters": {
+										"angle": "-90"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "coinText",
+									"sid": 836780492911278,
+									"parameters": {
+										"text": "value"
+									}
+								}
+							],
+							"sid": 300048489143522
+						}
+					]
 				}
 			],
 			"sid": 198300338258190

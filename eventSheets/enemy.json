@@ -178,13 +178,23 @@
 									]
 								},
 								{
-									"id": "subtract-from-instvar",
+									"id": "set-instvar-value",
 									"objectClass": "Players",
-									"sid": 491078708843420,
+									"sid": 384555546442622,
 									"parameters": {
 										"instance-variable": "currentHealth",
-										"value": "1"
+										"value": "(Self.currentHealth - Enemies.atk < 0) ? 0 : (Self.currentHealth - Enemies.atk)"
 									}
+								},
+								{
+									"callFunction": "displayCombatText",
+									"sid": 959269802317275,
+									"parameters": [
+										"Players.X",
+										"Players.Y - Players.Height/2",
+										"Enemies.atk",
+										"\"damage\""
+									]
 								}
 							],
 							"sid": 529722264616644,

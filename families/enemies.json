@@ -32,6 +32,12 @@
 			"type": "string",
 			"desc": "",
 			"sid": 146712720800675
+		},
+		{
+			"name": "atk",
+			"type": "number",
+			"desc": "Damage the enemy do.",
+			"sid": 305212516862088
 		}
 	],
 	"behaviorTypes": [

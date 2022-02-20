@@ -80,6 +80,12 @@
 			"type": "string",
 			"desc": "",
 			"sid": 334534215875555
+		},
+		{
+			"name": "atk",
+			"type": "number",
+			"desc": "Damage the player do.",
+			"sid": 571308066648094
 		}
 	],
 	"behaviorTypes": [

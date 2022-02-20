@@ -1117,11 +1117,21 @@
 						{
 							"id": "subtract-from-instvar",
 							"objectClass": "Enemies",
-							"sid": 358816316288995,
+							"sid": 200048714176327,
 							"parameters": {
 								"instance-variable": "currentHealth",
-								"value": "5"
+								"value": "Players.atk"
 							}
+						},
+						{
+							"callFunction": "displayCombatText",
+							"sid": 337940786043181,
+							"parameters": [
+								"Enemies.X",
+								"Enemies.Y - Enemies.Height/2",
+								"Players.atk",
+								"\"damage\""
+							]
 						}
 					],
 					"sid": 353556452117754,
